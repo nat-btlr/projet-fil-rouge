@@ -1,0 +1,71 @@
+/**** Extra Container ****/
+
+/* General style for the container */
+.extra-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.extra-info-container {
+  margin-top: 20px;
+}
+
+/* Styles for the navigation tabs */
+
+.extra-info-header {
+  margin-bottom: 10px;
+}
+
+.ml-2 {
+  margin-left: 8px;
+}
+
+/* Styles for the slider */
+.similar-videos-row {
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.similar-videos-slider {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.similar-video-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 400px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background-color: var(--blanc);
+}
+
+.similar-video-image {
+  flex: 0 1 70%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.similar-video-container {
+  flex: 0 1 30%;
+  padding: 10px;
+  background-color: var(--blanc);
+  text-align: center;
+}
+
+.similar-video-container .card-title {
+  font-size: 1rem;
+  margin-top: 5px;
+  white-space: normal;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* Styles for the More Info element */
+.more-info-container {
+  padding: 0;
+}

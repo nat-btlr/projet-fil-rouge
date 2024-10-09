@@ -1,0 +1,92 @@
+.video-info-container {
+    width: 100%;
+    margin-top: 2rem;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+/**** Image Container ****/
+
+.image-container {
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+#video-cover {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    margin: 0;
+    padding: 0
+}
+
+/**** Info Container ****/
+
+/*** Buttons ***/
+
+/* PLAY button */
+.buttons-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-button-big {
+    width: 80%;
+    padding: 1rem 0;
+    margin: 1rem;
+}
+
+/* Round buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.action-buttons .btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 0;
+    border-radius: 50%;
+    flex: 0 0 auto;
+}
+/*** Name and descritpion  ***/
+
+.description-container {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: var(--jaune);
+    margin-top: 1rem;
+    border-radius: 25px;
+}
+
+.description-video {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+}
+
+/* Override Bootstrap card styles */
+.card {
+    padding: 0 !important;
+    border: none !important;
+}

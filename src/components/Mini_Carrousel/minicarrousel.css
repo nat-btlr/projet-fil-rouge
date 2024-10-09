@@ -1,0 +1,46 @@
+.carousel-control-icon {
+  background-color: var(--lilas); /* Fond noir semi-opaque */
+  border-radius: 50%; /* Fond rond */
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Couleur de l'icône */
+}
+
+.carousel-control-prev {
+  left: -130px;
+}
+  
+.carousel-control-next {
+  right: -120px;
+}
+  
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--lilas); /* Fond noir semi-opaque */
+  border-radius: 50%; /* Fond rond */
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  content: '\f104'; /* Code Font Awesome pour la flèche gauche */
+  font-family: "Font Awesome 5 Free"; /* Spécifier explicitement Font Awesome */
+  font-weight: 900; /* Utiliser l'icône solide */
+  color: white; /* Couleur de la flèche */
+}
+  
+#smc {
+  margin-bottom: -350px;
+}
+
+.col-md-2, .card, .img-fluid {
+  width: 150px !important;
+}

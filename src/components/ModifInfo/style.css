@@ -1,0 +1,30 @@
+.modif {
+    color: var(--rose);
+}
+
+.row-espace-client {
+    background-color:var(--jaune);
+    margin: 10px 0;
+    padding: 15px;
+}
+
+/* Pour styliser et bien placer les boutons sur cette page */
+.btn-valider {
+    padding: 0 20px;
+}
+
+.space-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-genre-container {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Pout styliser les boutons en gras juste sur cette page (car il y a un style general pour les boutons dans le fichier index.scss) */
+.bold-link {
+    color: inherit;
+    text-decoration: none;
+  }
