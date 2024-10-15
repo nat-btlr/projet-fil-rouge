@@ -7,7 +7,7 @@ import Navigation from '../Navigation/Nav';
 
 const Connexion = () => (
 <>
-  <Navigation />
+  <Navigation />²
   <div className="form-container">
       <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail"></Form.Group>
