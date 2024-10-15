@@ -86,15 +86,7 @@ const Contact = () => {
               <Form.Label>Pseudo</Form.Label>
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                <Form.Control
-                  type="text"
-                  placeholder="Pseudo"
-                  aria-describedby="inputGroupPrepend"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  isInvalid={!!errors.username}
-                />
+                <Form.Control type="text" placeholder="Pseudo" aria-describedby="inputGroupPrepend" name="username" value={formData.username} onChange={handleChange} isInvalid={!!errors.username} />
                 <Form.Control.Feedback type="invalid">
                   {errors.username}
                 </Form.Control.Feedback>
@@ -102,14 +94,7 @@ const Contact = () => {
             </Form.Group>
             <Form.Group as={Col} md="7" controlId="email" className="position-relative">
               <Form.Label>E-mail</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="E-mail"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                isInvalid={!!errors.email}
-              />
+              <Form.Control type="email" placeholder="E-mail" name="email" value={formData.email} onChange={handleChange} isInvalid={!!errors.email} />
               <Form.Control.Feedback type="invalid">
                 {errors.email}
               </Form.Control.Feedback>
@@ -119,14 +104,7 @@ const Contact = () => {
           <Row className="mb-3">
             <Form.Group as={Col} md="15" controlId="sujet" className="position-relative">
               <Form.Label>Sujet du message</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Sujet du message"
-                name="sujet"
-                value={formData.sujet}
-                onChange={handleChange}
-                isInvalid={!!errors.sujet}
-              />
+              <Form.Control type="text" placeholder="Sujet du message" name="sujet" value={formData.sujet} onChange={handleChange} isInvalid={!!errors.sujet} />
               <Form.Control.Feedback type="invalid">
                 {errors.sujet}
               </Form.Control.Feedback>
@@ -135,14 +113,7 @@ const Contact = () => {
           <Row className="mb-3">
             <Form.Group as={Col} md="15"for controlId="message" className="position-relative">
               <Form.Label>Message :</Form.Label>
-              <Form.Control
-                type="textarea"
-                placeholder="Message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                isInvalid={!!errors.message}
-              />
+              <Form.Control type="textarea" placeholder="Message" name="message" value={formData.message} onChange={handleChange} isInvalid={!!errors.message} />
               <Form.Control.Feedback type="invalid">
                 {errors.message}
               </Form.Control.Feedback>
@@ -150,25 +121,14 @@ const Contact = () => {
           </Row>
           <Form.Group className="position-relative mb-3" controlId="file">
             <Form.Label>Fichier (facultatif) :</Form.Label>
-            <Form.Control
-              type="file"
-              name="file"
-              onChange={handleChange}
-              isInvalid={!!errors.file}
-            />
+            <Form.Control type="file" name="file" onChange={handleChange} isInvalid={!!errors.file} />
             <Form.Control.Feedback type="invalid">
               {errors.file}
             </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="position-relative mb-3" controlId="terms">
-            <Form.Check
-              required
-              name="terms"
-              label="J’accepte que mes données soient utilisées pour traiter ma demande."
-              onChange={handleChange}
-              isInvalid={!!errors.terms}
-            />
+            <Form.Check required name="terms" label="J’accepte que mes données soient utilisées pour traiter ma demande." onChange={handleChange} isInvalid={!!errors.terms} />
             <Form.Control.Feedback type="invalid">
               {errors.terms}
             </Form.Control.Feedback>
@@ -179,9 +139,7 @@ const Contact = () => {
 
         <Container className='space-btn'>
           <Button className="bold-link">
-            <Link to="/espaceclient" style={{ textDecoration: 'none', color: 'inherit' }}>
-              Retour
-            </Link>
+            <Link to="/espaceclient" style={{ textDecoration: 'none', color: 'inherit' }}>Retour</Link>
           </Button>
         </Container>
       </Container>
