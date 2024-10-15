@@ -12,7 +12,7 @@ import VideoCategorySante from './components/VideoCategories/VideoCategory';
 import EspaceClient from './components/EspaceClient/index';
 import ModifInfo from './components/ModifInfo/index';
 import Connexion from './components/Connexion/index';
-import Contact from './components/Contact';
+import Contact from './components/Contact/index';
 
 const RoutesConfig = () => (
   <Router>
