@@ -31,7 +31,7 @@ const Connexion = () => (
         </div>
         <div className="creationContainer">
           <p id="textConnection">Pas de compte ?</p>
-          <Button className="buttonForm">Créer un compte</Button>
+          <Button className="buttonForm"><Link to="/inscription">Créer un compte</Link></Button>
         </div>
       </Form>
     </div>
