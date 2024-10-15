@@ -27,9 +27,7 @@ const Inscription = () => {
     <>
       <Navigation />
       <Container>
-        <h1 className='montitre'>Mon Compte</h1>
-        <h2 className='modif'>Modifier mes informations</h2>
-        <h3 className='n-membre'>n° membre : 24456777</h3>
+        <h1 className='montitre'>Créer un compte</h1>
         <div className="button-genre-container">
           <Button className="buttonGenre" as="input" type="button" value="Madame" />
           <Button className="buttonGenre" as="input" type="button" value="Monsieur" />
