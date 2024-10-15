@@ -12,6 +12,7 @@ import VideoCategorySante from './components/VideoCategories/VideoCategory';
 import EspaceClient from './components/EspaceClient/index';
 import ModifInfo from './components/ModifInfo/index';
 import Connexion from './components/Connexion/index';
+import Contact from './components/Contact';
 
 const RoutesConfig = () => (
   <Router>
@@ -24,6 +25,7 @@ const RoutesConfig = () => (
       <Route path="/modifinfo" element={<ModifInfo />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/modifinfo" element={<ModifInfo />} />
+      <Route path='/contact' element={<Contact />} />
     </Routes>
   </Router>
 );
