@@ -1,4 +1,3 @@
-import React from 'react';
 import './style.css';
 
 import {
@@ -10,11 +9,11 @@ import {
 import { Link } from 'react-router-dom';
 
 const InfoCompte = () => (
-  <Container className='conteneur'>
+  <Container className='conteneur-infocompte'>
     <h3>Mon compte FUTURES MAMANS</h3>
     <Row>
     <Col sm={8}>Madame NOM Prénom</Col>
-    <Col sm={4}><Link to="/modifinfo">Modifier mes informations &gt;</Link></Col>
+    <Col sm={4} className='lienmodif'><Link to="/modifinfo">Modifier mes informations &gt;</Link></Col>
     <Col sm={8}>Adresse : 4 rue Claude Debussy 93120 LA COURNEUVE</Col>
     <Col sm={8}>Téléphone fixe : 01 00 00 00 00</Col>
     <Col sm={8}>Téléphone portable : 01 00 00 00 00</Col>

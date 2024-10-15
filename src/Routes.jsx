@@ -24,6 +24,7 @@ const RoutesConfig = () => (
       <Route path="/modifinfo" element={<ModifInfo />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/modifinfo" element={<ModifInfo />} />
+      <Route path="/contact" element={<ModifInfo />} />
     </Routes>
   </Router>
 );
