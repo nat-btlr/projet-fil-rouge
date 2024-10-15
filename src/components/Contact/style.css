@@ -1,21 +1,21 @@
 .contact-form {
-  margin: auto;
+    margin: auto;
 }
 
 #username.form-control, #email.form-control {
-  background-color: var(--lilas);
+    background-color: var(--lilas);
 }
 
 #sujet.form-control, #message.form-control,#file.form-control {
-  background-color: var(--jaune);
+    background-color: var(--jaune);
 }
 
 #message.form-control {
-  padding-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 .env-contact {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 /* faire un message de confirmation de réception de la demande maquette faite sur figma */
