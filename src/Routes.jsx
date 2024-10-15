@@ -13,6 +13,7 @@ import EspaceClient from './components/EspaceClient/index';
 import ModifInfo from './components/ModifInfo/index';
 import Connexion from './components/Connexion/index';
 import Contact from './components/Contact/index';
+import Inscription from './components/Inscription/index';
 
 const RoutesConfig = () => (
   <Router>
@@ -25,6 +26,7 @@ const RoutesConfig = () => (
       <Route path="/modifinfo" element={<ModifInfo />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/inscription' element={<Inscription />} />
     </Routes>
   </Router>
 );
