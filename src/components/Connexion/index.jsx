@@ -24,9 +24,7 @@ const Connexion = () => (
           <Form.Check type="checkbox" label="Rester connecté-e" />
         </Form.Group>
         <div className="connexionContainer">
-            <Button className="buttonForm" type="submit">
-              Connexion
-            </Button>
+            <Button className="buttonForm" type="submit">Connexion</Button>
           <Form.Label>Mot de passe oublié ?</Form.Label>
         </div>
         <div className="creationContainer">
