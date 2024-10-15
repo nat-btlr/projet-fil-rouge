@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 import {
@@ -7,7 +6,8 @@ import {
   Form,
   InputGroup,
   Row,
-  Col
+  Col,
+  useState
 } from 'react-bootstrap';
 
 import Navigation from '../Navigation/Nav';
