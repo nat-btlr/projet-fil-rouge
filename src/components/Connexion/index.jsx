@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -26,7 +26,7 @@ const Connexion = () => (
         </Form.Group>
         <div className="connexionContainer">
             <Button className="buttonForm" type="submit">Connexion</Button>
-          <Form.Label>Mot de passe oublié ?</Form.Label>
+          <Form.Label>(Mot de passe oublié ?)</Form.Label>
         </div>
         <div className="creationContainer">
           <p id="textConnection">Pas de compte ?</p>

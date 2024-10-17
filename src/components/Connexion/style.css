@@ -7,7 +7,9 @@
 }
 
 form {
-    color:rgb(225, 99, 120);
+    color: var(--rose);
+    font-weight: 500;
+    font-family: 'Outfit';
     width: 50%;
     height: 100%;
     padding: 15px;

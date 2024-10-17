@@ -1,11 +1,12 @@
 #navbarScroll {
   padding-left: 230px;
-  padding-top: 10px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 nav {
   background-color: var(--lilas) !important;
+  box-shadow: 5px 0px 15px var(--lilas);
 }
 
 nav a {
@@ -24,12 +25,17 @@ nav a {
 }
 
 .me-2 {
-  border: solid 1px var(--rose) !important;
-  color: var(--rose) !important;
+  border: solid 1px var(--prune) !important;
+  color: var(--prune) !important;
 }
 
 svg {
   width: 35px;
   margin-left: 20px;
   margin-right: 10px;
+}
+
+#boutonRechercher {
+  font-family: 'Outfit' !important;
+  background-color: var(--jaune) !important;
 }

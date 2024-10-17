@@ -142,7 +142,7 @@ const ModifInfo = () => {
 
       <Container className='space-btn'>
         <Button className='btn-valider bold-link' type="submit">VALIDER</Button>
-        <Button className="bold-link"><Link to="/espaceclient">Retour</Link></Button>
+        <Button className="bold-link"><Link to="/compte">Retour</Link></Button>
       </Container>
     </>
   );
