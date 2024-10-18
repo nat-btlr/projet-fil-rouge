@@ -1,7 +1,7 @@
 import Navigation from '../Navigation/Nav';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import Footer from '../Footer/index'
+import Footer from '../Footer/index'
 
 import './style.css';
 
@@ -20,7 +20,7 @@ const PageCompte = () => (
       </Container>
       <Button className="buttonSupprimer">Supprimer mon compte Futures Mamans</Button>
     </Container>
-    {/* <Footer /> */}
+    <Footer />
   </>
 );
 

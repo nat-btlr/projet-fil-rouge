@@ -2,14 +2,6 @@
     margin: auto;
 }
 
-#username.form-control, #email.form-control {
-    background-color: var(--lilas);
-}
-
-#sujet.form-control, #message.form-control,#file.form-control {
-    background-color: var(--jaune);
-}
-
 #message.form-control {
     padding-bottom: 100px;
 }

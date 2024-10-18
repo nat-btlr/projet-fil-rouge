@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 
 import './style.css';
 import Navigation from '../Navigation/Nav';
+import Footer from '../Footer';
 
 const Connexion = () => (
 <>
@@ -34,6 +35,7 @@ const Connexion = () => (
         </div>
       </Form>
     </div>
+    <Footer />
   </>
 );
 export default Connexion;
