@@ -33,15 +33,14 @@
     text-decoration: none;
 }
 
-/* stylisation input  voir plus tard pour mettre une classe juste pour la stylisation*/
-#validationPrenom,#validationNom,#validationAdresse,#validationCodePostal,#validationVille,#validationTelFixe,#validationTelPortable,#validationPseudo,#validationEmail,#validationMdp {
-    background-color: var(--jaune);
-}
-
 .conteneur-modifcompte {
-    background-color: var(--blanc); 
-    /* bidouillage car pas réussi à tout aligner avec la div container */
-    margin-left: 86px;
+    background-color: var(--jaune);
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 10px;
+    margin-bottom: 15px;
 }
 
-
+.titreLabel {
+    margin: 10px 0px;
+}

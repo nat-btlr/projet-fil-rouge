@@ -15,8 +15,8 @@ const PageCompte = () => (
           <h3>Bienvenue USERNAME</h3>
           <p className='lienmodif'><Link to="/modifinfo">Modifier mes informations &gt;</Link></p>
         </div>
-        <p>E-mail : email@email.com</p>
-        <p>Mot de passe : *******</p>
+        <p><span class="titreChamps">E-mail :</span> email@email.com</p>
+        <p><span class="titreChamps">Mot de passe :</span> *******</p>
       </Container>
       <Button className="buttonSupprimer">Supprimer mon compte Futures Mamans</Button>
     </Container>
