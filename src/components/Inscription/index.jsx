@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 
 import '../Connexion/style.css';
 import Navigation from '../Navigation/Nav';
+import Footer from '../Footer';
 
 const Inscription = () => (
 <>
@@ -43,6 +44,7 @@ const Inscription = () => (
         </div>
       </Form>
     </div>
+    <Footer />
   </>
 );
 export default Inscription;

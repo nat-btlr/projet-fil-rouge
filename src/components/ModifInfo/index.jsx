@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Nav';
+import Footer from '../Footer';
 
 const ModifInfo = () => {
   const [validated, setValidated] = useState(false);
@@ -62,6 +63,7 @@ const ModifInfo = () => {
           <Button className="bold-link"><Link to="/compte">Retour</Link></Button>
         </Container>
       </Container>
+      <Footer />
     </>
   );
 };

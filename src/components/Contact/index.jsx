@@ -11,6 +11,7 @@ import {
 } from 'react-bootstrap';
 
 import Navigation from '../Navigation/Nav';
+import Footer from '../Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -77,7 +78,7 @@ const Contact = () => {
       <Navigation />
       <Container className='conteneur-contact'>
         <Container>
-          <h1 className='montitre'>Formulaire de contact</h1>
+          <h1 className='montitre'>Formulaire de Contact</h1>
         </Container>
 
         <Form className='contact-form' noValidate onSubmit={handleSubmit}>
@@ -85,7 +86,6 @@ const Contact = () => {
           <Form.Group as={Col} md="5" controlId="username">
               <Form.Label>Pseudo</Form.Label>
               <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
                 <Form.Control type="text" placeholder="Pseudo" aria-describedby="inputGroupPrepend" name="username" value={formData.username} onChange={handleChange} isInvalid={!!errors.username} />
                 <Form.Control.Feedback type="invalid">
                   {errors.username}
@@ -133,16 +133,17 @@ const Contact = () => {
               {errors.terms}
             </Form.Control.Feedback>
           </Form.Group>
-
-          <Button className='env-contact' type="submit">ENVOYER</Button>
+          <Container className='space-btn'>
+            <Button className='env-contact' type="submit">ENVOYER</Button>
+            <Button className="bold-link">
+              <Link to="/espaceclient" style={{ textDecoration: 'none', color: 'inherit' }}>Retour</Link>
+            </Button>
+          </Container>
         </Form>
 
-        <Container className='space-btn'>
-          <Button className="bold-link">
-            <Link to="/espaceclient" style={{ textDecoration: 'none', color: 'inherit' }}>Retour</Link>
-          </Button>
-        </Container>
+        
       </Container>
+      <Footer />
     </>
   );
 };

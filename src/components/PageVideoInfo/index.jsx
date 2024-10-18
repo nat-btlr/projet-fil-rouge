@@ -13,6 +13,7 @@ import './style.css';
 
 import ExtraInfo from '../ExtraInformation/ExtraInfo';
 import DescriptionGroup from '../CardDescription/CardDescription';
+import Footer from '../Footer';
 
 // A function to be implement for it to loop over video covers
 import imgVideo from '../Images/test41.jpg';
@@ -55,7 +56,8 @@ const PageVideoInfo = () => {
     <Row className="extra-container">
       <ExtraInfo />
     </Row>
-  </Container>
+    <Footer />
+    </Container>
   );
 };
 
