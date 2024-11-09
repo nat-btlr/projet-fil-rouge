@@ -1,0 +1,39 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+form {
+    color:rgb(225, 99, 120);
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+}
+
+.connexionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.creationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 2rem;  
+}
+
+.buttonForm {
+    width: 40%;
+    margin-left: 0;
+}
+
+#textConnection {
+    margin: 0;
+}

@@ -11,7 +11,7 @@ import Error404 from './components/Error404';
 import VideoCategorySante from './components/VideoCategories/VideoCategory';
 import EspaceClient from './components/EspaceClient/index';
 import ModifInfo from './components/ModifInfo/index';
-import Connexion from './components/Formulaire/index';
+import Connexion from './components/Connexion/index';
 
 const RoutesConfig = () => (
   <Router>
