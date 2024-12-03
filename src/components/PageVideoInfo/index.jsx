@@ -26,11 +26,21 @@ const PageVideoInfo = () => {
     navigate('/videocategorysante');
   };
 
+  const videoUrl = "http://localhost:8080/video1.mp4"
+
   return (
   <Container className="video-info-container">
     <Row className="image-container">
       <CloseButton className="closeButton" onClick={handleCloseButton}/>
-      <img id="video-cover" src={imgVideo} alt="Woman with an apple"/>
+      {/* <img id="video-cover" src={imgVideo} alt="Woman with an apple"/> */}
+      <video
+        controls
+        width="720"
+        height="480"
+      >
+        <source src={videoUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+      </video>
     </Row>
     <Row className="info-container">
       <Col className="buttons-video" sm={4}>
