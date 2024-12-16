@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-import '../Connexion/style.css';
-import Navigation from '../Navigation/Nav';
-import Footer from '../Footer';
+import "../Connexion/style.css";
+import Navigation from "../Navigation/Nav";
+import Footer from "../Footer";
 
 const Inscription = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [gender, setGender] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Уведомление
 
+  const navigate = useNavigate();
   const apiUrlSubscribe = "http://localhost:8080/public/subscribe";
 
   const addUser = async (e) => {
@@ -30,6 +32,11 @@ const Inscription = () => {
       await axios.post(apiUrlSubscribe, newUser);
       console.log("User added.");
 
+      setSuccessMessage("Compte créé avec succès !");
+      setTimeout(() => {
+        navigate("/connexion"); // Перенаправление через 2 секунды
+      }, 2000);
+
       setEmail("");
       setPassword("");
       setUsername("");
@@ -43,6 +50,7 @@ const Inscription = () => {
     <>
       <Navigation />
       <div className="form-container">
+        {successMessage && <div className="alert alert-success">{successMessage}</div>}
         <Form onSubmit={addUser}>
           <h1>Créer un compte</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">

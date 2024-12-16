@@ -38,8 +38,8 @@
     background-color: var(--jaune);
 }*/
 
-.conteneur-modifcompte {
-    background-color: var(--blanc); 
-    /* bidouillage car pas réussi à tout aligner avec la div container */
-    margin-left: 86px;
+.form-container {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
 }

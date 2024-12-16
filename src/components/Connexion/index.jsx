@@ -9,11 +9,14 @@ import Navigation from '../Navigation/Nav';
 import Footer from '../Footer';
 
 const Connexion = () => {
-  // Creating hooks for managinf the state
+  // Creating hooks for managing the state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");  // New state for error message
 
-  // Creating a link to the endpoint for logging in using the url from the backend
+  const navigate = useNavigate();
+
+  // Creating a link to the endpoint for logging in using the URL from the backend
   const apiUrlConnect = "http://localhost:8080/public/login";
 
   const login = async (e) => {
@@ -23,22 +26,37 @@ const Connexion = () => {
       email: email,
       password: password,
     };
-
+    
     try {
-      await axios.post(apiUrlConnect, ExistingUser);
-      console.log("User found.");
+      const response = await axios.post(apiUrlConnect, ExistingUser);
+      if (response.status === 200) {
+        console.log("User found.")
 
-      setEmail("");
-      setPassword("");
+        const userData = {
+          token: response.data.token,  // Token if it comes in the response
+          username: response.data.username,    // Username if it exists in the response
+          email: response.data.email   // User email
+        };
+
+        localStorage.setItem("user", JSON.stringify(userData));
+        console.log("USER: " + localStorage.getItem("user"));
+        
+        setEmail("");
+        setPassword("");
+        setErrorMessage(""); // Clear the error message on successful login
+
+        navigate("/homeauth");
+      }
     } catch (error) {
-      console.log("The user has not beed found", error);
+      console.error("The user has not been found", error);
+      setErrorMessage("Aucun utilisateur trouvé avec cet e-mail."); // Set the error message
     }
   };
 
   return (
-  <>
-    <Navigation />
-    <div className="form-container">
+    <>
+      <Navigation />
+      <div className="form-container">
         <Form onSubmit={login}>
           <Form.Group className="mb-3" controlId="formBasicEmail"></Form.Group>
           <h1>Se Connecter</h1>
@@ -60,11 +78,12 @@ const Connexion = () => {
               onChange={(e) => setPassword(e.target.value)}
               required />
           </Form.Group>
+          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message if it exists */}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Rester connecté-e" />
           </Form.Group>
           <div className="connexionContainer">
-              <Button className="buttonForm" type="submit">Connexion</Button>
+            <Button className="buttonForm" type="submit">Connexion</Button>
             <Form.Label>(Mot de passe oublié ?)</Form.Label>
           </div>
           <div className="creationContainer">
@@ -75,6 +94,7 @@ const Connexion = () => {
       </div>
       <Footer />
     </>
-  )
+  );
 };
+
 export default Connexion;

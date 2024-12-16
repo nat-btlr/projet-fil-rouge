@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './style.css';
 import {
   Container,
@@ -7,50 +8,132 @@ import {
   Form,
   Col
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navigation from '../Navigation/Nav';
 import Footer from '../Footer';
 
 const ModifInfo = () => {
   const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
-    const formulaire = event.currentTarget;
-    if (formulaire.checkValidity() === false) {
-      event.preventDefault();
+  // Состояние для формы ввода данных
+  const [formData, setFormData] = useState({
+    currentEmail: '',
+    newUsername: '',
+    newEmail: '',
+    newPassword: ''
+  });
+
+  // URL для изменения данных
+  const apiUrlModif = "http://localhost:8080/api/updateuser";
+  const navigate = useNavigate();
+
+  // Функция для обновления состояния при изменении полей ввода
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // Отправка формы
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = document.querySelector('form');
+
+    if (form.checkValidity() === false) {
       event.stopPropagation();
+      setValidated(true);
+      return;
     }
-    setValidated(true);
+
+    try {
+      const response = await axios.put(apiUrlModif, formData);
+      if (response.status === 200) {
+        alert('Vos informations ont été modifiées avec succès.');
+
+        // Обновляем localStorage с новыми данными
+        const updatedUser = {
+          ...JSON.parse(localStorage.getItem("user")),
+          username: formData.newUsername,
+          email: formData.newEmail
+        };
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+
+        navigate('/compte'); // Перенаправление на страницу аккаунта
+      }
+    } catch (error) {
+      console.error('Erreur lors de la modification des informations:', error);
+      alert('Une erreur est survenue. Veuillez réessayer.');
+    }
   };
 
   return (
     <>
       <Navigation />
-      <Container>
+      <Container className='compteModif'>
         <h1>Mon Compte</h1>
         <h2>Modifier mes informations</h2>
         <Container className='conteneur-modifcompte'>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <div className='change-mail'>
-              <Form.Group as={Col} md="10" controlId="validationPseudo">
-                <Form.Label class="titreLabel">Pseudo</Form.Label>
+              <Form.Group as={Col} md="10" controlId="validationCurrentEmail">
+                <Form.Label className="titreLabel">Email actuel</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="E-mail actuel"
+                  required
+                  name="currentEmail"
+                  value={formData.currentEmail}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Merci de renseigner l'adresse email actuelle.
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group as={Col} md="10" controlId="validationUsername">
+                <Form.Label className="titreLabel">Pseudo</Form.Label>
                 <InputGroup hasValidation>
-                  <Form.Control type="text" placeholder="Pseudo" aria-describedby="inputGroupPrepend" required />
+                  <Form.Control
+                    type="text"
+                    placeholder="Pseudo"
+                    required
+                    name="newUsername"
+                    value={formData.newUsername}
+                    onChange={handleChange}
+                  />
                   <Form.Control.Feedback type="invalid">
-                    Merci de choisir un pseudonyme.
+                    Merci de choisir un nom d'utilisateur.
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
+
               <Form.Group as={Col} md="10" controlId="validationEmail">
-                <Form.Label class="titreLabel">Email</Form.Label>
-                <Form.Control type="email" placeholder="E-mail" required />
+                <Form.Label className="titreLabel">Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Nouveau e-mail"
+                  required
+                  name="newEmail"
+                  value={formData.newEmail}
+                  onChange={handleChange}
+                />
                 <Form.Control.Feedback type="invalid">
-                  Merci de renseigner une adresse email valide.
+                  Merci de renseigner un email valide.
                 </Form.Control.Feedback>
               </Form.Group>
+
               <Form.Group as={Col} md="10" controlId="validationMdp">
-                <Form.Label class="titreLabel">Mot de passe</Form.Label>
-                <Form.Control type="password" placeholder="Mot de passe" required />
+                <Form.Label className="titreLabel">Mot de passe</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Mot de passe"
+                  required
+                  name="newPassword"
+                  value={formData.newPassword}
+                  onChange={handleChange}
+                />
                 <Form.Control.Feedback type="invalid">
                   Merci d'entrer un mot de passe valide.
                 </Form.Control.Feedback>
@@ -58,9 +141,14 @@ const ModifInfo = () => {
             </div>
           </Form>
         </Container>
+
         <Container className='space-btn'>
-          <Button className='btn-valider bold-link' type="submit">VALIDER</Button>
-          <Button className="bold-link"><Link to="/compte">Retour</Link></Button>
+          <Button type="submit" onClick={handleSubmit} className='btn-valider bold-link'>
+            VALIDER
+          </Button>
+          <Button className="bold-link">
+            <Link to="/compte">Retour</Link>
+          </Button>
         </Container>
       </Container>
       <Footer />

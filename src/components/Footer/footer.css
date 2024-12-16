@@ -1,12 +1,14 @@
 #monFooter {
   background-color: var(--jaune);
   width: 100%;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   /* margin-top: -150px; */
+  position: absolute;
+  margin-top: auto;
 }
 
 a {

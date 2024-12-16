@@ -45,3 +45,9 @@
 .titreLabel {
     margin: 10px 0px;
 }
+
+.compteModif {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+}
