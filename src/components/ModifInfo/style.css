@@ -19,7 +19,6 @@
 .space-btn {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
 }
 
 .button-genre-container {
@@ -47,7 +46,7 @@
 }
 
 .compteModif {
-    height: 75vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
