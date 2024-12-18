@@ -95,4 +95,5 @@ const Connexion = () => {
     <Footer />
   </>
 );
+}
 export default Connexion;
