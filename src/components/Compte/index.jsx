@@ -8,22 +8,21 @@ import LogoutButton from '../ButtonLogout/ButtonLogout';
 import axios from 'axios';
 
 const PageCompte = () => {
-  // Состояние для хранения данных пользователя
+  // State to keep user data
   const [user, setUser] = useState(null);
 
-  // Для управления навигацией
+  // Hook used to manage navigation
   const navigate = useNavigate();
 
-  // URL для запросов API
-  const apiUrlDeleteAccount = "http://localhost:8080/api/deleteaccount";
-  const apiUrlGetUser = "http://localhost:8080/api/getuser";
+  // URL for API requests
+  const apiUrl = import.meta.env.VITE_API_URL;
 
-  // Получение данных пользователя из localStorage
+  // Getting user data from localStorage
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const email = storedUser ? storedUser.email : null;
 
   useEffect(() => {
-    // Функция для получения данных пользователя с сервера
+    // Funcrtion to get user data from the server
     const fetchUser = async () => {
       if (!email) {
         console.error("Email is not available.");
@@ -31,10 +30,10 @@ const PageCompte = () => {
       }
 
       try {
-        const response = await axios.get(apiUrlGetUser, { params: { email } });
+        const response = await axios.get(`${apiUrl}/api/getuser`, { params: { email } });
         if (response.status === 200) {
-          setUser(response.data); // Устанавливаем данные пользователя в состояние
-          // Обновляем localStorage с актуальными данными
+          setUser(response.data); // Communicating the info about the user into the state
+          // Updating localStorage using the updated data
           const updatedUser = { ...storedUser, ...response.data };
           localStorage.setItem("user", JSON.stringify(updatedUser));
         } else {
@@ -61,14 +60,14 @@ const PageCompte = () => {
     if (!confirmation) return;
 
     try {
-      const response = await axios.delete(apiUrlDeleteAccount, {
+      const response = await axios.delete(`${apiUrl}/api/deleteaccount`, {
         params: { email: user.email },
       });
 
       if (response.status === 200) {
         alert("Votre compte a été supprimé avec succès.");
-        localStorage.removeItem("user"); // Удаляем данные из localStorage
-        navigate("/"); // Перенаправляем на главную страницу
+        localStorage.removeItem("user"); // Deleting data from the local storagel
+        navigate("/"); // Redirecting to the home page
       } else {
         alert(`Erreur: ${response.data.message || "Une erreur s'est produite."}`);
       }

@@ -15,7 +15,7 @@ import Footer from '../Footer';
 const ModifInfo = () => {
   const [validated, setValidated] = useState(false);
 
-  // Состояние для формы ввода данных
+  // State for entering the data into the form
   const [formData, setFormData] = useState({
     currentEmail: '',
     newUsername: '',
@@ -24,7 +24,7 @@ const ModifInfo = () => {
   });
 
   // URL для изменения данных
-  const apiUrlModif = "http://localhost:8080/api/updateuser";
+  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   // Функция для обновления состояния при изменении полей ввода
@@ -48,11 +48,11 @@ const ModifInfo = () => {
     }
 
     try {
-      const response = await axios.put(apiUrlModif, formData);
+      const response = await axios.put(`${apiUrl}/api/updateuser`, formData);
       if (response.status === 200) {
         alert('Vos informations ont été modifiées avec succès.');
 
-        // Обновляем localStorage с новыми данными
+        // Updating localStorage with new data
         const updatedUser = {
           ...JSON.parse(localStorage.getItem("user")),
           username: formData.newUsername,
@@ -60,7 +60,7 @@ const ModifInfo = () => {
         };
         localStorage.setItem("user", JSON.stringify(updatedUser));
 
-        navigate('/compte'); // Перенаправление на страницу аккаунта
+        navigate('/compte');
       }
     } catch (error) {
       console.error('Erreur lors de la modification des informations:', error);

@@ -17,7 +17,7 @@ const Connexion = () => {
   const navigate = useNavigate();
 
   // Creating a link to the endpoint for logging in using the URL from the backend
-  const apiUrlConnect = "http://localhost:8080/public/login";
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const login = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const Connexion = () => {
     };
     
     try {
-      const response = await axios.post(apiUrlConnect, ExistingUser);
+      const response = await axios.post(`${apiUrl}/public/login`, ExistingUser);
       if (response.status === 200) {
         console.log("User found.")
 

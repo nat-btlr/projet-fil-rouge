@@ -16,7 +16,7 @@ const Inscription = () => {
   const [successMessage, setSuccessMessage] = useState(""); // Уведомление
 
   const navigate = useNavigate();
-  const apiUrlSubscribe = "http://localhost:8080/public/subscribe";
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const addUser = async (e) => {
     e.preventDefault();
@@ -29,12 +29,12 @@ const Inscription = () => {
     };
 
     try {
-      await axios.post(apiUrlSubscribe, newUser);
+      await axios.post(`${apiUrl}/public/subscribe`, newUser);
       console.log("User added.");
 
       setSuccessMessage("Compte créé avec succès !");
       setTimeout(() => {
-        navigate("/connexion"); // Перенаправление через 2 секунды
+        navigate("/connexion");
       }, 2000);
 
       setEmail("");
