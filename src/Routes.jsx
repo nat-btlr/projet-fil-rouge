@@ -15,6 +15,7 @@ import ModifInfo from './components/ModifInfo/index';
 import Connexion from './components/Connexion/index';
 import Contact from './components/Contact/index';
 import Inscription from './components/Inscription/index';
+import PanneauAdmin from './components/PanneauAdmin/PanneauAdmin';
 
 const RoutesConfig = () => (
   <Router>
@@ -29,6 +30,7 @@ const RoutesConfig = () => (
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/inscription" element={<Inscription />} />
+      <Route path='/panneauadmin' element={<PanneauAdmin />} />
     </Routes>
   </Router>
 );

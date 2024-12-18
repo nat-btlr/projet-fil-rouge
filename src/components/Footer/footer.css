@@ -6,9 +6,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-top: -150px; */
-  position: absolute;
-  margin-top: auto;
+  /* margin-top: 50px; */
+  /* position: absolute; */
+  /* margin-top: auto; */
 }
 
 a {
