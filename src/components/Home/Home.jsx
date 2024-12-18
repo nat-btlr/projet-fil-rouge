@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 
 import Navigation from '../Navigation/Nav';
 import photoAcceuil from '../Images/pexels_12.jpg';
