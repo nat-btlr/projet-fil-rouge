@@ -1,13 +1,15 @@
 import React from "react";
 import { Container } from 'react-bootstrap';
-
+import NavAdmin from "../NavAdmin/NavAdmin";
 import './gestionvideos.css';
+import FooterAdmin from "../FooterAdmin/footeradmin";
 
 const GestionVideos = () => (
   <>
+  <NavAdmin />
     <Container className="corpsGestionVideos">
       <div className="h2etBouton">
-        <h2>Gérer mes vidéos</h2>
+        <h1>Gérer mes vidéos</h1>
         <button className="ajoutervideo">Ajouter une vidéo</button>
       </div>
       
@@ -114,6 +116,7 @@ const GestionVideos = () => (
         </Container>
       </div>
     </Container>
+    <FooterAdmin />
   </>
 );
 
