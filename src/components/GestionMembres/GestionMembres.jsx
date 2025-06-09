@@ -4,10 +4,9 @@ import './style.css';
 import CarrouselMembres from '../CarrouselMembres/CarrouselMembres';
 import FooterAdmin from '../FooterAdmin/footeradmin';
 import { Button, Form } from 'react-bootstrap';
-import CustomPagination from '../Pagination/Pagination';
 
-const GestionMembres = () => {
-  return (
+
+const GestionMembres = () => (
     <>
       <NavAdmin />
       <div>
@@ -31,6 +30,6 @@ const GestionMembres = () => {
       <FooterAdmin />
     </>
   );
-}
 
 export default GestionMembres;
+

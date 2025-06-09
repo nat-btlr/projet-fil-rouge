@@ -21,6 +21,7 @@ import HomeDashboard from './components/HomeDashboard/homedashboard';
 import GestionCommentaires from './components/GestionCommentaires/GestionCommentaires';
 import GestionMembres from './components/GestionMembres/GestionMembres';
 import GestionVideos from './components/GestionVideos/GestionVideos';
+import AjouterVideo from './components/AjouterVideo/AjouterVideo';
 
 
 const RoutesConfig = () => (
@@ -45,6 +46,7 @@ const RoutesConfig = () => (
       <Route path="/gestion-videos" element={<GestionVideos />} />
       <Route path="/gestion-membres" element={<GestionMembres />} />
       <Route path="/gestion-commentaires" element={<GestionCommentaires />} />
+      <Route path="/ajouter-video" element={<AjouterVideo />} />
     </Routes>
   </Router>
 );

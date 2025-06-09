@@ -1,122 +1,55 @@
 import React from "react";
-import { Container } from 'react-bootstrap';
 import NavAdmin from "../NavAdmin/NavAdmin";
 import './gestionvideos.css';
 import FooterAdmin from "../FooterAdmin/footeradmin";
+import { Button, Form } from 'react-bootstrap';
+import CarrouselMembres from "../CarrouselMembres/CarrouselMembres";
 
 const GestionVideos = () => (
   <>
-  <NavAdmin />
-    <Container className="corpsGestionVideos">
-      <div className="h2etBouton">
-        <h1>Gérer mes vidéos</h1>
-        <button className="ajoutervideo">Ajouter une vidéo</button>
+<NavAdmin />
+      <div>
+        <h1>Gestion des vidéos</h1>
+        <div className='container-gestion'>
+          <a className="lien-telechargement" href="">Télécharger une nouvelle vidéo ?</a>
+          <div id='rech'>
+            <h5>Rechercher une vidéo :</h5>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Rechercher une vidéo"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button id="boutonRechercher">Rechercher</Button>
+              <h5>Filtrer les vidéos :</h5>
+                <Form>
+      {['checkbox', 'radio'].map((type) => (
+        <div key={`inline-${type}`} className="mb-3">
+          <Form.Check
+            inline
+            label="Catégorie"
+            name="categorie"
+            type={type}
+            id={`inline-${type}-1`}
+          />
+          <Form.Check
+            inline
+            label="Auteur"
+            name="auteur"
+            type={type}
+            id={`inline-${type}-2`}
+          />
+        </div>
+      ))}
+    </Form>
+            </Form>
+          </div>
+        </div>
+        <CarrouselMembres />
       </div>
-      
-      <div className="grillevideos">
-      <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-        <Container className="containervideo">
-        <iframe width="260" height="145" src="https://www.youtube.com/embed/3s0bB1gbMEU?si=Hw3kzhs7CjRKm-5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div className="detailsvideos">
-          <div className="infosvideo">
-          <span className="titrevideo">Nom de la vidéo</span>
-          <span className="datevideo">Date d'ajout</span>
-          </div>
-          <button>Modifier</button>
-        </div>
-        </Container>
-      </div>
-    </Container>
-    <FooterAdmin />
+      <FooterAdmin />
+    
   </>
 );
 
