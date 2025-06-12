@@ -1,0 +1,29 @@
+.paginationtest {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.paginationtest .page-item .page-link {
+  color: var(--prune);        
+  background-color: var(--blanc);  
+  border: 1px solid var(--prune);  
+  font-family: Outfit;
+}
+
+.paginationtest .page-item.active .page-link {
+  background-color: var(--prune);
+  color: var(--blanc);
+  border-color: var(--prune);
+}
+
+.paginationtest .page-item.disabled .page-link {
+  color: grey;
+  background-color: var(--blanc);
+  border-color: lightgrey;
+}
+
+.paginationtest .page-item .page-link:hover {
+  background-color: var(--rose);
+  color: var(--blanc);
+  border-color: var(--rose);
+}

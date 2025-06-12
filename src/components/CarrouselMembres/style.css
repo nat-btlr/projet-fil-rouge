@@ -1,0 +1,48 @@
+.minnie-container {
+  position: relative;
+  top: -200px;
+  margin: 0 auto;
+}
+
+.minnie {
+  display: flex;
+  overflow: hidden;
+}
+
+.minnie-slide {
+  flex: 0 0 auto; /* Permet aux éléments de ne pas se rétrécir */
+  margin-right: 10px; /* Espacement entre les images */
+}
+
+.profil {
+  object-fit: cover;
+}
+
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-button {
+  left: -50px;
+}
+
+.next-button {
+  right: -50px;
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.button-annuler {
+margin-right: 5px;
+}

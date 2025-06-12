@@ -15,7 +15,14 @@ import ModifInfo from './components/ModifInfo/index';
 import Connexion from './components/Connexion/index';
 import Contact from './components/Contact/index';
 import Inscription from './components/Inscription/index';
-import PanneauAdmin from './components/PanneauAdmin/PanneauAdmin';
+import NavAdmin from './components/NavAdmin/NavAdmin';
+import FooterAdmin from './components/FooterAdmin/footeradmin';
+import HomeDashboard from './components/HomeDashboard/homedashboard';
+import GestionCommentaires from './components/GestionCommentaires/GestionCommentaires';
+import GestionMembres from './components/GestionMembres/GestionMembres';
+import GestionVideos from './components/GestionVideos/GestionVideos';
+import AjouterVideo from './components/AjouterVideo/AjouterVideo';
+
 
 const RoutesConfig = () => (
   <Router>
@@ -30,7 +37,16 @@ const RoutesConfig = () => (
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/inscription" element={<Inscription />} />
-      <Route path='/panneauadmin' element={<PanneauAdmin />} />
+      <Route path="/videoadmin" element={<NavAdmin />} />
+      <Route path="/membresadmin" element={<NavAdmin />} />
+      <Route path="/commentairesadmin" element={<NavAdmin />} />
+      <Route path="/navadmin" element={<NavAdmin />} />
+      <Route path="/footeradmin" element={<FooterAdmin />} />
+      <Route path="/homedashboard" element={<HomeDashboard />} />
+      <Route path="/gestion-videos" element={<GestionVideos />} />
+      <Route path="/gestion-membres" element={<GestionMembres />} />
+      <Route path="/gestion-commentaires" element={<GestionCommentaires />} />
+      <Route path="/ajouter-video" element={<AjouterVideo />} />
     </Routes>
   </Router>
 );

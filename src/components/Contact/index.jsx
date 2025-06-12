@@ -140,8 +140,6 @@ const Contact = () => {
             </Button>
           </Container>
         </Form>
-
-        
       </Container>
       <Footer />
     </>
