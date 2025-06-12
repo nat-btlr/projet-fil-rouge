@@ -19,7 +19,7 @@ import PanneauAdmin from './components/PanneauAdmin/PanneauAdmin';
 
 const RoutesConfig = () => (
   <Router>
-    <Routes>Sante
+    <Routes>
       <Route index element={<HomePublic />} />
       <Route path="*" element={<Error404 />} />
       <Route path="/pagevideoinfo" element={<PageVideoInfo />} />
