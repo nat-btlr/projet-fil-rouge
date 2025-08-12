@@ -13,7 +13,7 @@ const Home = () => (
     <div id="fond">
     <Navigation />
     <div className="welcomeWords">
-      <img src={photoAcceuil} alt="Acceuil" id="pexels"/>
+      <img src={photoAcceuil} alt="Accueil" id="pexels"/>
       <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
       <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>

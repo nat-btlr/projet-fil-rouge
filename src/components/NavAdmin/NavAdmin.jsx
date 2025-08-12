@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
-import './style.css'; 
+import './navAdmin.css'; 
 import logo from '../Images/logo.png'; 
-
+//verifier le login de l'administrateur
 const NavAdmin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const NavAdmin = () => {
   };
 
   return (
-    <Navbar expand="lg">
+    <Navbar className="navbar-admin" expand="lg" >
       <Container fluid>
         <Navbar.Brand className='navLogo'>
           <Link to="/">
@@ -32,13 +32,13 @@ const NavAdmin = () => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className="justify-content-end">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-            <Nav.Link as={Link} to="/videoadmin">
+            <Nav.Link as={Link} to="/gestion-videos">
               Vidéos
             </Nav.Link>
-            <Nav.Link as={Link} to="/membresadmin" onClick={(e) => handleLinkClick(e, '/membresadmin')}>
+            <Nav.Link as={Link} to="/gestion-membres" onClick={(e) => handleLinkClick(e, '/gestion-membres')}>
               Membres
             </Nav.Link>
-            <Nav.Link as={Link} to="/commentairesadmin" onClick={(e) => handleLinkClick(e, '/commentairesadmin')}>
+            <Nav.Link as={Link} to="/gestion-commentaires" onClick={(e) => handleLinkClick(e, '/gestion-commentaires')}>
               Commentaires
             </Nav.Link>
           </Nav>

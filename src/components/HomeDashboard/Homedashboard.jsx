@@ -38,7 +38,6 @@ const HomeDashboard = () => {
           </div>
         </div>
       </Container>
-
       <FooterAdmin />
     </>
   );

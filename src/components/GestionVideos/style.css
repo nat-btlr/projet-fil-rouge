@@ -1,0 +1,25 @@
+.lien-telechargement {
+  display: inline-block;
+  text-decoration: underline;
+  margin-bottom: 30px;
+  
+}
+
+.lien-video {
+  text-decoration: underline;
+  align-items: first baseline;
+}
+
+.recherche-video {
+display: flex;
+align-items: center;
+padding-left: 0px;
+}
+
+.btnj-rech {
+  background-color: var(--jaune) !important;
+}
+
+.filtre {
+  color:var(--rose);
+}

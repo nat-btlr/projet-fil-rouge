@@ -1,7 +1,7 @@
 /*revoir l'espace entre les liens */
 
 #navbarScroll {
-  padding-left: 230px;
+  padding-left: 150px;
   padding-top: 5px;
   padding-bottom: 10px;
 }
@@ -12,9 +12,8 @@
   width: 100%;
 }
 
-nav {
-  background-color: var(--lilas) !important;
-  box-shadow: 5px 0px 15px var(--lilas);
+.navbar-admin {
+  background-color: var(--lilas);
 }
 
 nav a {
@@ -25,9 +24,9 @@ nav a {
   margin-right: 80px;
 }
 
-.navLogo img {
+.navbar-admin .navLogo img {
   width: 200px;
-  margin: 10px;
+  margin: 10px 10px 10px 200px;
   position: absolute;
   top: 0px;
 }
