@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import NavAdmin from '../NavAdmin/NavAdmin';
-import FooterAdmin from '../FooterAdmin/FooterAdmin';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
+import FooterAdmin from '../FooterAdmin/footeradmin';
 import './style.css';
+import { Link } from 'react-router-dom';
+
 
 const mockVideos = [
   {
@@ -100,7 +102,7 @@ const GestionVideos = () => {
                       <strong>Catégorie :</strong> {video.categorie}<br />
                       <strong>Auteur :</strong> {video.auteur}<br />
                       <div style={{ marginTop: '10px' }}>
-                        <a href="#">Modifier ?</a><br />
+                        <Link to={`/modifier-video/${video.id}`}>Modifier ?</Link><br />
                         <a href="#">Supprimer ?</a>
                       </div>
                     </Card.Text>

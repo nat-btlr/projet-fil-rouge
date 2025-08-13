@@ -6,7 +6,7 @@ import {
   Button,
   Form
 } from 'react-bootstrap';
-import './style.css'; // Assurez-vous que le chemin est correct
+import './style.css'; 
 
 const AjouterVideo = () => {
   const [formData, setFormData] = useState({

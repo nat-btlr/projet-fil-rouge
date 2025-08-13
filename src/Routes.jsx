@@ -22,7 +22,7 @@ import GestionCommentaires from './components/GestionCommentaires/GestionComment
 import GestionMembres from './components/GestionMembres/GestionMembres';
 import GestionVideos from './components/GestionVideos/GestionVideos';
 import AjouterVideo from './components/AjouterVideo/AjouterVideo';
-
+import ModifVideo from './components/ModifierVideo/ModifVideo'; 
 
 const RoutesConfig = () => (
   <Router>
@@ -47,6 +47,11 @@ const RoutesConfig = () => (
       <Route path="/gestion-membres" element={<GestionMembres />} />
       <Route path="/gestion-commentaires" element={<GestionCommentaires />} />
       <Route path="/ajouter-video" element={<AjouterVideo />} />
+      <Route path="/modifier-video" element={<ModifVideo />} />
+      <Route path="/modifier-video/:id" element={<ModifVideo />} />
+      <Route path="/modifier-video/:id" element={<ModifVideo />} />
+
+
     </Routes>
   </Router>
 );

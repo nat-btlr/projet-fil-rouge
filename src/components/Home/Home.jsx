@@ -17,7 +17,6 @@ const Home = () => (
       <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
       <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
-    
     <Carrie />
       <div className='mesCarrousels'>
         <Minnie />

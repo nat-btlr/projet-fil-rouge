@@ -9,7 +9,7 @@ import { Button, Form } from 'react-bootstrap';
 const GestionMembres = () => (
     <>
       <NavAdmin />
-      <div>
+      <div className='container-gestion-membres'>
         <h1>Gestion des Membres</h1>
         <div className='container-gestion'>
           <div id='rech'>

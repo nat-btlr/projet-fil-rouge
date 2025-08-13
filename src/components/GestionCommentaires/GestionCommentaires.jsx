@@ -1,11 +1,12 @@
 import React from "react";
+import NavAdmin from "../NavAdmin/NavAdmin";
 
 const GestionCommentaires = () => { 
   return (
     <div>
+      <NavAdmin />
       <h1>Gestion des Commentaires</h1>
-      <p>Cette section vous permet de gérer les commentaires des utilisateurs.</p>
-      {/* Ajoutez ici le code pour gérer les commentaires */}
+      <p>Cette section permettra de gérer les commentaires des membres.</p>
     </div>
   );
 }
