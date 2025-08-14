@@ -78,7 +78,7 @@ const CarrouselMembres = ({ minnieWidth = '70%', imageWidth = '150px', imageHeig
           <div className='popup-content'>
             <p>Confirmer la suppression du profil ?</p>
             <button className='button-annuler' onClick={() => setShowConfirm(false)}>Annuler</button>
-            <button onClick={handleDelete} style={{ backgroundColor: 'red', color: 'white' }}>
+            <button onClick={handleDelete}>
               Supprimer
             </button>
           </div>
