@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 
-import './nav.css';
+import './Nav.css';
 import logo from './logo.png';
 
 const Navigation = () => {
@@ -40,7 +40,7 @@ const Navigation = () => {
               <Link to="/homeauth">Accueil</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/videocategorysante" onClick={(e) => handleLinkClick(e, '/videocategorysante')}>Santé</Link>
+              <Link to="/videocategoriesante" onClick={(e) => handleLinkClick(e, '/videocategoriesante')}>Santé</Link>
             </Nav.Link>
             <Nav.Link>
               <Link to="/videopreparation" onClick={(e) => handleLinkClick(e, '/videopreparation')}>Préparation</Link>

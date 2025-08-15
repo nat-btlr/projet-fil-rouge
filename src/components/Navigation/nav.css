@@ -1,8 +1,9 @@
-#navbarScroll {
-  padding-left: 230px;
+ /* est ce que la navigation est utile ?
+ #navbarScroll {
+ padding-left: 230px;
   padding-top: 5px;
   padding-bottom: 10px;
-}
+}*/
 
 nav {
   background-color: var(--lilas) !important;
@@ -14,7 +15,10 @@ nav a {
   font-weight: bold;
   font-size: 25px;
   text-shadow: 1px 1px 0px var(--prune);
+  padding: 0 !important; 
+  margin: 10px 20px !important; 
 }
+
 
 .navLogo img {
   width: 200px;

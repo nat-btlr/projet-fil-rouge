@@ -31,7 +31,7 @@ const RoutesConfig = () => (
       <Route path="*" element={<Error404 />} />
       <Route path="/pagevideoinfo" element={<PageVideoInfo />} />
       <Route path="/homeauth" element={<Home />} />
-      <Route path="/videocategorysante" element={<VideoCategorySante />} />
+      <Route path="/videocategoriesante" element={<VideoCategorySante />} />
       <Route path="/compte" element={<PageCompte />} />
       <Route path="/modifinfo" element={<ModifInfo />} />
       <Route path="/connexion" element={<Connexion />} />
