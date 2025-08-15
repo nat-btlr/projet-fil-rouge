@@ -7,7 +7,7 @@ import {
 
 import Home from './components/Home/Home';
 import HomePublic from './components/HomePublic/HomePublic'
-import PageVideoInfo from './components/PageVideoInfo/index';
+import PageVideoInfo from './components/PageVideoInfo/PageVideoInfo';
 import Error404 from './components/Error404';
 import VideoCategorySante from './components/VideoCategories/VideoCategory';
 import PageCompte from './components/Compte/index';
@@ -47,10 +47,9 @@ const RoutesConfig = () => (
       <Route path="/gestion-membres" element={<GestionMembres />} />
       <Route path="/gestion-commentaires" element={<GestionCommentaires />} />
       <Route path="/ajouter-video" element={<AjouterVideo />} />
+      {/* verifier s'il faut garder les 2 path ou pas  */}
       <Route path="/modifier-video" element={<ModifVideo />} />
       <Route path="/modifier-video/:id" element={<ModifVideo />} />
-      <Route path="/modifier-video/:id" element={<ModifVideo />} />
-
 
     </Routes>
   </Router>
