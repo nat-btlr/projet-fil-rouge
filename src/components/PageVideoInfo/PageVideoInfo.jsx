@@ -15,10 +15,6 @@ import DescriptionGroup from '../CardDescription/CardDescription';
 import Footer from '../Footer';
 import Navigation from '../Navigation/Nav';
 
-// A function to be implement for it to loop over video covers
-import imgVideo from '../Images/test41.jpg';
-
-// A component that assembles the page
 const PageVideoInfo = () => {
   const navigate = useNavigate();
 
@@ -42,7 +38,7 @@ const PageVideoInfo = () => {
           height="480"
         >
           <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
+          Votre navigateur ne prend pas en charge la vidéo.
         </video>
       </Row>
       <Row className="info-container">
@@ -58,7 +54,7 @@ const PageVideoInfo = () => {
               Favoris
             </Button>
             <Button className="rounded-circle">
-              Save
+              Enregistrer
             </Button>
           </ButtonGroup>
         </Col>
