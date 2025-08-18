@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './style.css';
+import './modifInfo.css';
 import {
   Container,
   Button,
@@ -15,7 +15,6 @@ import Footer from '../Footer';
 const ModifInfo = () => {
   const [validated, setValidated] = useState(false);
 
-  // State for entering the data into the form
   const [formData, setFormData] = useState({
     currentEmail: '',
     newUsername: '',
@@ -23,11 +22,9 @@ const ModifInfo = () => {
     newPassword: ''
   });
 
-  // URL для изменения данных
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
-  // Функция для обновления состояния при изменении полей ввода
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -36,7 +33,6 @@ const ModifInfo = () => {
     });
   };
 
-  // Отправка формы
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = document.querySelector('form');
@@ -52,7 +48,6 @@ const ModifInfo = () => {
       if (response.status === 200) {
         alert('Vos informations ont été modifiées avec succès.');
 
-        // Updating localStorage with new data
         const updatedUser = {
           ...JSON.parse(localStorage.getItem("user")),
           username: formData.newUsername,
@@ -88,7 +83,7 @@ const ModifInfo = () => {
                   onChange={handleChange}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Merci de renseigner l'adresse email actuelle.
+                  Merci de renseigner l&apos;adresse email actuelle.
                 </Form.Control.Feedback>
               </Form.Group>
 
@@ -104,7 +99,7 @@ const ModifInfo = () => {
                     onChange={handleChange}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Merci de choisir un nom d'utilisateur.
+                    Merci de choisir un nom d&apos;utilisateur.
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
@@ -135,18 +130,18 @@ const ModifInfo = () => {
                   onChange={handleChange}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Merci d'entrer un mot de passe valide.
+                  Merci d&apos;entrer un mot de passe valide.
                 </Form.Control.Feedback>
               </Form.Group>
             </div>
           </Form>
         </Container>
 
-        <Container className='space-btn'>
-          <Button type="submit" onClick={handleSubmit} className='btn-valider bold-link'>
+        <Container className='espace-btn'>
+          <Button type="submit" onClick={handleSubmit} className='btn-valider lien-gras'>
             VALIDER
           </Button>
-          <Button className="bold-link">
+          <Button className="lien-gras">
             <Link to="/compte">Retour</Link>
           </Button>
         </Container>

@@ -1,5 +1,3 @@
-/* CONTENEUR GLOBAL A FAIRE OU AUTRE POUR ALIGNER LES FORM AVEC LES AUTRES ELEMENTS */
-
 .modif {
     color: var(--rose);
 }
@@ -9,25 +7,19 @@
     padding: 15px;
 }
 
-/* Pour styliser et bien placer les boutons sur cette page */
+
 .btn-valider {
     font-weight: bold;
     background-color: var(--rose);
     padding: 0 20px;
 }
 
-.space-btn {
+.espace-btn {
     display: flex;
     justify-content: space-between;
 }
 
-.button-genre-container {
-    display: flex;
-    gap: 1rem;
-}
-
-/* Pout styliser les boutons en gras juste sur cette page (car il y a un style general pour les boutons dans le fichier index.scss) */
-.bold-link {
+.lien-gras {
     font-weight: bold;
     color: inherit;
     text-decoration: none;

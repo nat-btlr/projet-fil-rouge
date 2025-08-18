@@ -7,7 +7,7 @@
     margin-bottom: 15px;
 }
 
-.headline {
+.bienvenue {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Уменьшено расстояние */
+    gap: 20px; 
     padding-top: 70px;
     padding-bottom: 50px;
 }
@@ -35,27 +35,26 @@
 
 .boutonsGestionCompte {
     display: flex;
-    justify-content: space-between; /* Расположить кнопки по краям */
+    justify-content: space-between; 
     width: 100%;
-    max-width: 600px; /* Максимальная ширина контейнера кнопок */
-    gap: 10px; /* Отступы между кнопками */
+    max-width: 600px; 
+    gap: 10px; 
     margin-bottom: 50px;
 }
 
-.buttonSupprimer, .buttonLogout {
-    width: 48%; /* Кнопки будут занимать 48% ширины контейнера */
-    max-width: 250px; /* Ограничим максимальную ширину кнопок */
-    margin-bottom: 0; /* Убрали лишний отступ снизу */
+.boutonSupprimer, .boutonLogout {
+    width: 48%; 
+    max-width: 250px; 
+    margin-bottom: 0; 
 }
 
-/* Одинаковый стиль для кнопок */
-button, .buttonSupprimer {
+.bouton, .boutonSupprimer {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #007bff; /* Цвет кнопки */
+    background-color: #007bff; 
     color: white;
     transition: background-color 0.3s;
 }

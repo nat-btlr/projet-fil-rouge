@@ -9,9 +9,9 @@ import Home from './components/Home/Home';
 import HomePublic from './components/HomePublic/HomePublic'
 import PageVideoInfo from './components/PageVideoInfo/PageVideoInfo';
 import Error404 from './components/Error404/Error404';
-import VideoCategorieSante from './components/CategoriesVideos/VideoSante/VideoCategorieSante'; 
-import PageCompte from './components/Compte/index';
-import ModifInfo from './components/ModifInfo/index';
+
+import PageCompte from './components/Compte/Compte';
+import ModifInfo from './components/ModifInfo/ModifInfo';
 import Connexion from './components/Connexion/index';
 import Contact from './components/Contact/index';
 import Inscription from './components/Inscription/index';
@@ -23,9 +23,10 @@ import GestionMembres from './components/GestionMembres/GestionMembres';
 import GestionVideos from './components/GestionVideos/GestionVideos';
 import AjouterVideo from './components/AjouterVideo/AjouterVideo';
 import ModifVideo from './components/ModifierVideo/ModifVideo'; 
-import VideoCategoriePreparation from './components/CategoriesVideos/VideoPreparation/VideoCategoriePrepa';
+import VideoCategorieSante from './components/CategoriesVideos/VideoSante/VideoCategorieSante'; 
+import VideoCategoriePreparation from './components/CategoriesVideos/VideoPreparation/VideoCategoriePreparation';
 import VideoCategorieCosmetique from './components/CategoriesVideos/VideoCosmetique/VideoCategorieCosmetique';
-import VideoCategorieEcologie from './components/CategoriesVideos/VideoEcologie/VideoCategorieEcologie'; 
+import VideoCategorieEcologie from './components/CategoriesVideos/VideoEcologie/VideoCategorieEcologie';
 
 const RoutesConfig = () => (
   <Router>

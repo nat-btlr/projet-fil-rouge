@@ -3,26 +3,22 @@ import Navigation from '../Navigation/Nav';
 import { Button, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Footer/index';
-import './style.css';
+import './compte.css';
 import LogoutButton from '../ButtonLogout/ButtonLogout';
 import axios from 'axios';
 
 const PageCompte = () => {
-  // State to keep user data
+  
   const [user, setUser] = useState(null);
 
-  // Hook used to manage navigation
   const navigate = useNavigate();
 
-  // URL for API requests
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  // Getting user data from localStorage
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const email = storedUser ? storedUser.email : null;
 
   useEffect(() => {
-    // Funcrtion to get user data from the server
     const fetchUser = async () => {
       if (!email) {
         console.error("Email is not available.");
@@ -32,8 +28,7 @@ const PageCompte = () => {
       try {
         const response = await axios.get(`${apiUrl}/api/getuser`, { params: { email } });
         if (response.status === 200) {
-          setUser(response.data); // Communicating the info about the user into the state
-          // Updating localStorage using the updated data
+          setUser(response.data); 
           const updatedUser = { ...storedUser, ...response.data };
           localStorage.setItem("user", JSON.stringify(updatedUser));
         } else {
@@ -47,7 +42,6 @@ const PageCompte = () => {
     fetchUser();
   }, [email]);
 
-  // Удаление аккаунта
   const handleDeleteAccount = async () => {
     if (!user || !user.email) {
       alert("Utilisateur introuvable.");
@@ -66,8 +60,8 @@ const PageCompte = () => {
 
       if (response.status === 200) {
         alert("Votre compte a été supprimé avec succès.");
-        localStorage.removeItem("user"); // Deleting data from the local storagel
-        navigate("/"); // Redirecting to the home page
+        localStorage.removeItem("user"); 
+        navigate("/"); 
       } else {
         alert(`Erreur: ${response.data.message || "Une erreur s'est produite."}`);
       }
@@ -83,7 +77,7 @@ const PageCompte = () => {
       <Container className="corpsCompte">
         <h1>Mon Espace Compte</h1>
         <Container className="conteneur-infocompte">
-          <div className="headline">
+          <div className="bienvenue">
             <h3>Bienvenue {user ? user.username : ""}</h3>
             <p className="lienmodif">
               <Link to="/modifinfo">Modifier mes informations &gt;</Link>
@@ -94,10 +88,10 @@ const PageCompte = () => {
           </p>
         </Container>
         <Container className="boutonsGestionCompte">
-          <Button className="buttonSupprimer" onClick={handleDeleteAccount}>
+          <Button className="boutonSupprimer" onClick={handleDeleteAccount}>
             Supprimer mon compte Futures Mamans
           </Button>
-          <LogoutButton className="buttonLogout" />
+          <LogoutButton className="boutonLogout" />
         </Container>
       </Container>
       <Footer />

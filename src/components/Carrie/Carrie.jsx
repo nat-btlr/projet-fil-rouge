@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './carrie.css'; // Fichier CSS pour styliser le carrousel
+import './carrie.css'; 
 
 import Image from '../Images/pexels_1.jpg';
 import Image2 from '../Images/pexels_3.jpg';
@@ -25,12 +25,10 @@ const Carrie = ({ carrieWidth = '70%', imageWidth = '350px', imageHeight = '200p
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Fonction pour passer à l'image suivante
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === movies.length - 3 ? 0 : prevIndex + 1));
   };
 
-  // Fonction pour revenir à l'image précédente
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? movies.length - 3 : prevIndex - 1));
   };
