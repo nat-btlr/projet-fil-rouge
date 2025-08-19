@@ -44,9 +44,6 @@ const RoutesConfig = () => (
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/inscription" element={<Inscription />} />
-      <Route path="/videoadmin" element={<NavAdmin />} />
-      <Route path="/membresadmin" element={<NavAdmin />} />
-      <Route path="/commentairesadmin" element={<NavAdmin />} />
       <Route path="/navadmin" element={<NavAdmin />} />
       <Route path="/footeradmin" element={<FooterAdmin />} />
       <Route path="/homedashboard" element={<HomeDashboard />} />

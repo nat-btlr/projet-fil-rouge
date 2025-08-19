@@ -50,7 +50,7 @@ const Connexion = () => {
     <div className="connexion-page">
       <Navigation />
       <h1 className='titreConnecter'>Se Connecter</h1>
-      <div className="form-container">
+      <div className="form-container-connexion">
         <Form className='form-connexion' onSubmit={login}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
