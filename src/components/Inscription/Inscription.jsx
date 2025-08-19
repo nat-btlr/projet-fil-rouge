@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import "../Connexion/style.css";
+import "./Inscription.css";
 import Navigation from "../Navigation/Nav";
 import Footer from "../Footer";
 

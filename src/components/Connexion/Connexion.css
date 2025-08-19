@@ -1,0 +1,45 @@
+.titreConnecter { 
+  text-align: center; 
+  margin-top: 20px; 
+} 
+
+.form-container { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; min-height: 60vh !important; 
+} 
+
+.form-connexion { 
+  color: var(--rose); 
+  font-weight: 500; 
+  font-family: 'Outfit'; 
+  width: 50%; height: 100%; 
+  margin-top: 0px;  
+  margin-bottom: 20px; 
+} 
+
+.connexionContainer { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.creationContainer { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 2rem; } 
+  
+.buttonForm { 
+  width: 40%; 
+  margin-left: 0;
+  font-weight: bold;
+  font-family: Mooli !important;
+}
+
+#textConnection { 
+  margin: 0; 
+}
