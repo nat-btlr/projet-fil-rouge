@@ -30,10 +30,13 @@ gap: 10px;
 }
 
 .modif-supp a {
-align-items: self-start;
+  align-items: self-start;
 }
 
-.btn-carousel {
-  font-size: 1.5rem;
+#btn-carrousel {
   margin: 0px 10px 0px 10px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  padding: 10px 10px;
+  border-radius: 0%;
 }

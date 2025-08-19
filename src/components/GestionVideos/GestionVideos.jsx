@@ -3,7 +3,7 @@ import NavAdmin from '../NavAdmin/NavAdmin';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 import FooterAdmin from '../FooterAdmin/footeradmin';
 import { Link } from 'react-router-dom';
-import './style.css';
+import './GestionVideos.css'; 
 
 import pexels1 from '../Images/pexels_1.jpg';
 import pexels2 from '../Images/pexels_2.jpg';
@@ -61,7 +61,6 @@ const GestionVideos = () => {
     return matchSearch && matchCategorie && matchAuteur;
   });
 
-  // Carrousel navigation
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex >= filteredVideos.length - 3 ? 0 : prevIndex + 1
@@ -74,7 +73,6 @@ const GestionVideos = () => {
     );
   };
 
-  // Suppression
   const confirmDelete = (id) => {
     setSelectedId(id);
     setShowConfirm(true);
@@ -123,7 +121,7 @@ const GestionVideos = () => {
         </div>
 
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <Button className='btn-carousel' onClick={prevSlide}>
+          <Button id='btn-carrousel' onClick={prevSlide}>
             {'<'}
           </Button>
 
@@ -149,7 +147,7 @@ const GestionVideos = () => {
             ))}
           </Row>
 
-          <Button className='btn-carousel'onClick={nextSlide}>
+          <Button id='btn-carrousel' onClick={nextSlide}>
             {'>'}
           </Button>
         </div>
