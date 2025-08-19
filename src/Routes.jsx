@@ -13,7 +13,7 @@ import Error404 from './components/Error404/Error404';
 import PageCompte from './components/Compte/Compte';
 import ModifInfo from './components/ModifInfo/ModifInfo';
 import Connexion from './components/Connexion/Connexion';
-import Contact from './components/Contact/index';
+import Contact from './components/Contact/Contact';
 import Inscription from './components/Inscription/Inscription';
 import NavAdmin from './components/NavAdmin/NavAdmin';
 import FooterAdmin from './components/FooterAdmin/footeradmin';
