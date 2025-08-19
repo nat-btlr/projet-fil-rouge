@@ -1,8 +1,9 @@
-import '../HomeDashboard/style.css';
+import React from 'react';
 import NavAdmin from '../NavAdmin/NavAdmin';
 import FooterAdmin from '../FooterAdmin/footeradmin';
 import { Container } from 'react-bootstrap';
-import React from 'react';
+import './homedashboard.css';
+
 import { Link } from 'react-router-dom';
 
 
@@ -12,27 +13,27 @@ const HomeDashboard = () => {
       <NavAdmin />
 
       <Container className="conteneur-homedashboard">
-        <h1 className="montitre">Bienvenue sur votre tableau de bord</h1>
+        <h1 className="titre-homedashboard">Bienvenue sur votre tableau de bord</h1>
 
-        <div className="cards-homedashboard">
-          <div className="card-item">
+        <div className="images-homedashboard">
+          <div>
             <Link to="/gestion-videos">
-              <img className='items' src="src\components\Images\gestion_videos.png" alt="vidéo" />
+              <img className='elements' src="src\components\Images\gestion_videos.png" alt="vidéo" />
               <h4>Gestion des vidéos</h4>
             </Link>
           </div>
 
-          <div className="card-item">
+          <div>
             <Link to="/gestion-membres">
-              <img className='items'
+              <img className='elements'
               src="src\components\Images\gestion_profil.png"alt="profil" />
               <h4>Gestion des membres</h4>
             </Link>
           </div>
 
-          <div className="card-item">
+          <div>
             <Link to="/gestion-commentaires">
-              <img className='items' src="src\components\Images\gestion_comm.png" alt="commentaire" />
+              <img className='elements' src="src\components\Images\gestion_comm.png" alt="commentaire" />
               <h4>Gestion des commentaires</h4>
             </Link>
           </div>

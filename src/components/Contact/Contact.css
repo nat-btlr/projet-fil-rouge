@@ -1,12 +1,12 @@
 .titreConnecter {
-    margin-bottom: 20px;
+ margin-bottom: 20px;
 }
 .env-contact {
-  font-weight: bold;
+ font-weight: bold;
 }
 
 .conteneur-contact {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
+ min-height: 75vh;
+ display: flex;
+ flex-direction: column;
 }

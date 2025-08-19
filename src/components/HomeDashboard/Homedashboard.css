@@ -1,5 +1,14 @@
+.titre-homedashboard {
+  margin: 20px;
+  text-align: center;
 
-.cards-homedashboard {
+}
+
+.conteneur-homedashboard {
+min-height: 75vh;
+}
+
+.images-homedashboard {
   display: flex;
   justify-content: space-between;
   flex-direction: raw;
@@ -12,7 +21,7 @@ a {
   align-items: center;
 }
 
-.items {
+.elements {
   width: 150px;
   height: 150px;
   margin-bottom: 30px;
