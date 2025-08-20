@@ -6,7 +6,7 @@ import {
   Button,
   Form
 } from 'react-bootstrap';
-import './style.css'; 
+import './AjouterVideo.css'; 
 
 const AjouterVideo = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +32,6 @@ const AjouterVideo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    // Ici tu peux envoyer les données au backend
   };
 
   return (
