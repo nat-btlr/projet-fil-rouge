@@ -51,7 +51,6 @@ const GestionVideos = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  // Filtrage
   const handleSearchChange = (e) => setSearch(e.target.value);
 
   const filteredVideos = videos.filter(video => {
@@ -129,7 +128,7 @@ const GestionVideos = () => {
             {filteredVideos.slice(currentIndex, currentIndex + 3).map(video => (
               <Col key={video.id} md={4} className="mb-4">
                 <Card>
-                  <Card.Img variant="top" src={video.image} />
+                  <Card.Img src={video.image} />
                   <Card.Body>
                     <Card.Text>
                       <strong>ID :</strong> {video.id}<br />

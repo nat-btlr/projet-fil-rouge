@@ -17,9 +17,6 @@ padding-left: 0px;
 gap: 10px;
 }
 
-.btnj-rech {
-  background-color: var(--jaune) !important;
-}
 
 .filtre {
   color:var(--rose);

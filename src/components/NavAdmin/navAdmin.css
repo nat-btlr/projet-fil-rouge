@@ -1,5 +1,3 @@
-/*revoir l'espace entre les liens */
-
 #navbarScroll {
   padding-left: 150px;
   padding-top: 5px;
@@ -21,7 +19,6 @@ nav a {
   font-weight: bold;
   font-size: 25px;
   text-shadow: 1px 1px 0px var(--prune);
-  margin-right: 80px;
 }
 
 .navbar-admin .navLogo img {

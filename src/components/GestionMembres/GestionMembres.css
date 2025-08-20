@@ -1,6 +1,6 @@
-#boutonRechercher {
-  font-family: 'Outfit' !important;
-  background-color: var(--jaune) !important;
+.titre-gestion-membres {
+  text-align: center;
+margin: 20px;
 }
 
 .me-2 {
@@ -12,6 +12,8 @@
 #rech {
   display: flex;
   align-items: center;
+  gap: 20px;
+  margin: 20px;
 }
 
 .mesCarrousels {
@@ -22,8 +24,6 @@
 
 .container-gestion {
   width: 100%;
-  height: 300px;
-  margin: 50px;
-  margin-left: 220px;
+  height: 250px;
 }
 

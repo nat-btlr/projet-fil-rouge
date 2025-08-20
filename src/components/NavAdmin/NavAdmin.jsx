@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
-import './navAdmin.css'; 
+import './NavAdmin.css'; 
 import logo from '../Images/logo.png'; 
-//verifier le login de l'administrateur
+
 const NavAdmin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const NavAdmin = () => {
     <Navbar className="navbar-admin" expand="lg" >
       <Container fluid>
         <Navbar.Brand className='navLogo'>
-          <Link to="/">
+          <Link to="/homedashboard">
             <img src={logo} alt="Logo Futures Mamans" />
           </Link>
         </Navbar.Brand>
