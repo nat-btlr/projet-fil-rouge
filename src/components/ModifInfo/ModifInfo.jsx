@@ -67,9 +67,9 @@ const ModifInfo = () => {
     <>
       <Navigation />
       <Container className='compteModif'>
-        <h1>Mon Compte</h1>
-        <h2>Modifier mes informations</h2>
-        <Container className='conteneur-modifcompte'>
+        <h1 className='titre-modif'>Mon Compte</h1>
+        <h2 className='titre-modif'>Modifier mes informations</h2>
+        <Container className='conteneur-modif'>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <div className='change-mail'>
               <Form.Group as={Col} md="10" controlId="validationCurrentEmail">

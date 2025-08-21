@@ -1,44 +1,46 @@
 .modif {
-    color: var(--rose);
+  color: var(--rose);
+}
+
+.titre-modif {
+  text-align: center;
+  margin: 20px;
 }
 
 .row-espace-client {
-    margin: 10px 0;
-    padding: 15px;
+  margin: 10px 0;
+  padding: 15px;
 }
 
 
 .btn-valider {
-    font-weight: bold;
-    background-color: var(--rose);
-    padding: 0 20px;
+  font-weight: bold;
+  background-color: var(--rose);
+  padding: 0 20px;
 }
 
 .espace-btn {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  gap : 50px;
+
 }
 
 .lien-gras {
-    font-weight: bold;
-    color: inherit;
-    text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
 }
 
-.conteneur-modifcompte {
-    background-color: var(--jaune);
-    padding: 20px;
-    border-radius: 10px;
-    line-height: 10px;
-    margin-bottom: 15px;
+.conteneur-modif {
+  margin-bottom: 20px;
 }
 
 .titreLabel {
-    margin: 10px 0px;
+  margin: 10px 0px;
 }
 
 .compteModif {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
 }
