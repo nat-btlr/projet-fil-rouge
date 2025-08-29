@@ -42,3 +42,31 @@ svg {
   font-family: 'Outfit' !important;
   background-color: var(--jaune) !important;
 }
+
+
+ /*version mobile (nav*/
+@media (max-width: 576px) {
+  .navLogo img {
+    width: 120px;        
+  }
+
+  nav a {
+    font-size: 16px !important;     
+    margin: 5px 10px !important;
+  }
+
+  svg {
+    width: 25px;         /* icônes plus petites */
+    margin: 5px;
+  }
+
+
+  .d-flex {
+    flex-direction: column;
+  }
+
+  #boutonRechercher {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}

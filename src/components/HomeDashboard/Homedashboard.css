@@ -11,7 +11,7 @@ min-height: 75vh;
 .images-homedashboard {
   display: flex;
   justify-content: space-between;
-  flex-direction: raw;
+  flex-direction: row;
   margin: 80px;
 }
 
@@ -25,4 +25,14 @@ a {
   width: 150px;
   height: 150px;
   margin-bottom: 30px;
+}
+
+
+/*Responsive*/
+@media (max-width: 576px) {
+  .images-homedashboard {
+    background-color: red !important;
+
+  }
+
 }
