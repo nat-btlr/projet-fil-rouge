@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import './Connexion.css';
 import Navigation from '../Navigation/Nav';
-import Footer from '../Footer';
+import Footer from "../Footer/Footer";
 
 const Connexion = () => { 
   const [email, setEmail] = useState("");

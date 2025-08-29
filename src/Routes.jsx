@@ -27,10 +27,12 @@ import VideoCategorieSante from './components/CategoriesVideos/VideoSante/VideoC
 import VideoCategoriePreparation from './components/CategoriesVideos/VideoPreparation/VideoCategoriePreparation';
 import VideoCategorieCosmetique from './components/CategoriesVideos/VideoCosmetique/VideoCategorieCosmetique';
 import VideoCategorieEcologie from './components/CategoriesVideos/VideoEcologie/VideoCategorieEcologie';
+import Footer from './components/Footer/Footer';
 
 const RoutesConfig = () => (
   <Router>
-    <Routes>Sante
+    <Routes>
+      <Route path="/footer" element={<Footer />} />
       <Route index element={<HomePublic />} />
       <Route path="*" element={<Error404 />} />
       <Route path="/pagevideoinfo" element={<PageVideoInfo />} />

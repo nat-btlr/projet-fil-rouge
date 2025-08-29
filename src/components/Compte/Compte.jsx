@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navigation from '../Navigation/Nav';
 import { Button, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../Footer/index';
+import Footer from "../Footer/Footer";
 import './compte.css';
 import LogoutButton from '../ButtonLogout/ButtonLogout';
 import axios from 'axios';

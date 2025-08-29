@@ -12,7 +12,7 @@ import './PageVideoInfo.css';
 
 import ExtraInfo from '../ExtraInformation/ExtraInfo';
 import DescriptionGroup from '../CardDescription/CardDescription';
-import Footer from '../Footer';
+import Footer from "../Footer/Footer";
 import Navigation from '../Navigation/Nav';
 
 const PageVideoInfo = () => {

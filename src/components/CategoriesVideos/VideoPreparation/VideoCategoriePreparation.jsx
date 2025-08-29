@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../../Navigation/Nav';
-import Footer from '../../Footer';
+import Footer from '../../Footer/Footer';
 import './VideoCategoriePreparation.css';
 import Carrousel from '../../Carrousel/Carrousel';
 

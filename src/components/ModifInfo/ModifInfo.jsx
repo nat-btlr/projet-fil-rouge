@@ -10,7 +10,7 @@ import {
 } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Navigation from '../Navigation/Nav';
-import Footer from '../Footer';
+import Footer from "../Footer/Footer";
 
 const ModifInfo = () => {
   const [validated, setValidated] = useState(false);

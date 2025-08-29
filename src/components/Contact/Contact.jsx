@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 
 import Navigation from '../Navigation/Nav';
-import Footer from '../Footer';
+import Footer from "../Footer/Footer";
 
 const Contact = () => {
   const [formData, setFormData] = useState({

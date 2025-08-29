@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 
 import "./Inscription.css"; 
 import Navigation from "../Navigation/Nav";
-import Footer from "../Footer";
+import Footer from "../Footer/Footer";
 
 const Inscription = () => {
   const [email, setEmail] = useState("");

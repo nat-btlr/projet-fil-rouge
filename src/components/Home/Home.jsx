@@ -4,7 +4,7 @@ import Navigation from '../Navigation/Nav';
 import photoAccueil from '../Images/pexels_12.jpg';
 import Carrie from '../Carrie/Carrie';
 import Minnie from '../Minnie/Minnie';
-import Footer from '../Footer';
+import Footer from "../Footer/Footer";
 
 import './Home.css';
 
