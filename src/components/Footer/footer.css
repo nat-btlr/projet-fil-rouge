@@ -13,7 +13,6 @@ a {
 }
 
 /* Responsive pour mobile*/
-
 @media (max-width: 576px) {
   #monFooter {
     padding: 15px;         
