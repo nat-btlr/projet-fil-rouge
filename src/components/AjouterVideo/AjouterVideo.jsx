@@ -38,7 +38,7 @@ const AjouterVideo = () => {
     <>
       <NavAdmin />
       <Container className="my-5">
-        <h1>Ajouter une nouvelle vidéo</h1>
+        <h1 className="titre-ajout-video">Ajouter une nouvelle vidéo</h1>
         <Form onSubmit={handleSubmit}>
 
           <Form.Group controlId="videoFile" className="mb-3">

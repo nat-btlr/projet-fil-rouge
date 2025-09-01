@@ -1,3 +1,15 @@
+.titre-ajout-video {
+  text-align: center;
+}
+
 .btn-enregistrer {
 font-weight: bold !important;
+}
+
+
+/*responsive*/
+@media (max-width: 576px) {
+  .titre-ajout-video {
+    font-size: 18px;
+  }
 }
