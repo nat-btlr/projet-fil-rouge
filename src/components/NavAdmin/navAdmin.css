@@ -1,25 +1,47 @@
-#navbarScroll {
-  padding-left: 150px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-}
-
-#navbarScroll .nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .navbar-admin {
   background-color: var(--lilas);
 }
 
+.navbar-admin .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-.navbar-admin .navLogo img {
+.navLogoAdmin img {
   width: 200px;
-  margin: 10px 10px 10px 200px;
-  position: absolute;
-  top: 0px;
+  margin: 10px;
+}
+
+.navbar-admin .navbar-collapse {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-admin .navbar-nav {
+  margin: 0 !important;
+  display: flex;
+  gap: 80px;
+  padding: 0 150px !important;
+  justify-content: center;
+  flex-direction: row !important;
+}
+
+.navbar-admin .nav-link {
+  color: var(--rose) !important;
+  font-weight: bold;
+  font-size: 25px;
+  text-shadow: 1px 1px 0px var(--prune);
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.admin-connection {
+  width: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .me-2 {
@@ -31,5 +53,19 @@
 @media (max-width: 576px) {
   .navLogoAdmin img {
     width: 120px;        
+  }
+  
+  .navbar-admin .navbar-nav {
+    gap: 40px;
+    padding: 0 20px !important;
+  }
+  
+  .navbar-admin .nav-link {
+    font-size: 16px !important;
+  }
+  
+  .admin-connection {
+    width: 25px;
+    margin: 5px;
   }
 }
