@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import './CarrouselMembres.css';
 import Profil from '../Images/profil.png';
 
 const CarrouselMembres = ({ minnieWidth = '70%', imageWidth = '150px', imageHeight = '150px' }) => {
@@ -39,23 +39,23 @@ const CarrouselMembres = ({ minnieWidth = '70%', imageWidth = '150px', imageHeig
   };
 
   return (
-    <div className='minnie-container' style={{ width: minnieWidth }}>
+    <div className='carrousel-conteneur' style={{ width: minnieWidth }}>
       <button className='prev-button' onClick={prevSlide}>
         &#10094;
       </button>
 
       <div className='minnie'>
         {membres.slice(currentIndex, currentIndex + 6).map((membre) => (
-          <div key={membre.id} className='minnie-slide'>
+          <div key={membre.id} className='membres-slide'>
             <img
               src={membre.imageUrl}
               alt={membre.pseudo}
               className='profil'
               style={{ width: imageWidth, height: imageHeight }}
             />
-            <h3 className='membre-title'>{membre.pseudo}</h3>
-            <p><strong>ID :</strong> {membre.id}</p> {/* Affichage de l'ID */}
-            <p>{membre.email}</p>
+            <h3>{membre.pseudo}</h3>
+            <p className='texte'><strong>ID :</strong> {membre.id}</p> 
+            <p className='texte'>{membre.email}</p>
             <div className='actions'>
               <a href='#' onClick={(e) => e.preventDefault()}>
               Désactiver ?
@@ -78,7 +78,7 @@ const CarrouselMembres = ({ minnieWidth = '70%', imageWidth = '150px', imageHeig
           <div className='popup-content'>
             <p>Confirmer la suppression du profil ?</p>
             <button className='button-annuler' onClick={() => setShowConfirm(false)}>Annuler</button>
-            <button onClick={handleDelete} style={{ backgroundColor: 'red', color: 'white' }}>
+            <button onClick={handleDelete}>
               Supprimer
             </button>
           </div>

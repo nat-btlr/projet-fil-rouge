@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import NavAdmin from "../NavAdmin/NavAdmin";
-import FooterAdmin from "../FooterAdmin/FooterAdmin";
+import FooterAdmin from '../FooterAdmin/footeradmin';
 import {
   Container,
   Button,
   Form
 } from 'react-bootstrap';
-import './style.css'; // Assurez-vous que le chemin est correct
+import './AjouterVideo.css'; 
 
 const AjouterVideo = () => {
   const [formData, setFormData] = useState({
@@ -32,14 +32,13 @@ const AjouterVideo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    // Ici tu peux envoyer les données au backend
   };
 
   return (
     <>
       <NavAdmin />
       <Container className="my-5">
-        <h1>Ajouter une nouvelle vidéo</h1>
+        <h1 className="titre-ajout-video">Ajouter une nouvelle vidéo</h1>
         <Form onSubmit={handleSubmit}>
 
           <Form.Group controlId="videoFile" className="mb-3">

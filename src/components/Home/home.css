@@ -30,9 +30,13 @@
 
 .welcomeButton {
   position: relative;
-  bottom: 450px;
+  /* bottom: 450px; */
   text-align: center;
   align-self: center;
   margin-top: 20px;
   font-weight: normal;
 }
+
+
+
+
