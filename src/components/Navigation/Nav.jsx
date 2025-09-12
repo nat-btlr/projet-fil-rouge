@@ -43,13 +43,13 @@ const Navigation = () => {
               <Link to="/videocategoriesante" onClick={(e) => handleLinkClick(e, '/videocategoriesante')}>Santé</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/videopreparation" onClick={(e) => handleLinkClick(e, '/videopreparation')}>Préparation</Link>
+              <Link to="/videocategoriepreparation" onClick={(e) => handleLinkClick(e, '/videopreparation')}>Préparation</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/videocosmetique" onClick={(e) => handleLinkClick(e, '/videocosmetique')}>Cosmétique</Link>
+              <Link to="/videocategoriecosmetique" onClick={(e) => handleLinkClick(e, '/videocosmetique')}>Cosmétique</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/videoecologie" onClick={(e) => handleLinkClick(e, '/videoecologie')}>Ecologie</Link>
+              <Link to="/videocategorieecologie" onClick={(e) => handleLinkClick(e, '/videoecologie')}>Ecologie</Link>
             </Nav.Link>
           </Nav>
           <Form className="d-flex">

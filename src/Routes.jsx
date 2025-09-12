@@ -34,7 +34,6 @@ const RoutesConfig = () => (
     <Routes>
       <Route path="/footer" element={<Footer />} />
       <Route index element={<HomePublic />} />
-      <Route path="*" element={<Error404 />} />
       <Route path="/pagevideoinfo" element={<PageVideoInfo />} />
       <Route path="/homeauth" element={<Home />} />
       <Route path="/videocategoriesante" element={<VideoCategorieSante />} />
@@ -56,6 +55,7 @@ const RoutesConfig = () => (
       {/* verifier s'il faut garder les 2 path ou pas  */}
       <Route path="/modifier-video" element={<ModifVideo />} />
       <Route path="/modifier-video/:id" element={<ModifVideo />} />
+      <Route path="*" element={<Error404 />} />
 
     </Routes>
   </Router>
