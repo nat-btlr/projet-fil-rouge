@@ -3,7 +3,7 @@ import Navigation from '../Navigation/Nav';
 import { Button, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../Footer/Footer";
-import './Сompte.css';
+import './Compte.css';
 import LogoutButton from '../ButtonLogout/ButtonLogout';
 import axios from 'axios';
 
