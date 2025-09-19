@@ -2,7 +2,7 @@ import React from 'react';
 import NavAdmin from '../NavAdmin/NavAdmin';
 import FooterAdmin from '../FooterAdmin/FooterAdmin';
 import { Container } from 'react-bootstrap';
-import './homedashboard.css';
+import './HomeDashboard.css';
 
 import { Link } from 'react-router-dom';
 
