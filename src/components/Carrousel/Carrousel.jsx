@@ -1,26 +1,30 @@
 import { Row } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Carrousel.css';
-import imgVideo2 from '../Images/carousel2.jpg';
 import { isValidCategory } from '../../constants/categories';
 
-const Video = ({ image, title, url, description }) => (
-  <div className="video-card">
-    {url ? (
-      <video className="video-thumbnail" controls>
+const Video = ({ id, title, url, description }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/video/${id}`, { state: { url, title, description } });
+  };
+
+  return (
+    <div className="video-card" onClick={handleClick}>
+      <video className="video-thumbnail">
         <source src={url} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    ) : (
-      <img src={image || imgVideo2} alt={title} className="video-thumbnail" />
-    )}
-    <div className="video-info">
-      <p className="video-title">{title}</p>
-      {description && <p className="video-description">{description}</p>}
+      <div className="video-info">
+        <p className="video-title">{title}</p>
+        {description && <p className="video-description">{description}</p>}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Carrousel = ({ categoryName }) => {
   const [videos, setVideos] = useState([]);
@@ -32,7 +36,7 @@ const Carrousel = ({ categoryName }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       console.log('Fetching videos for category:', categoryName);
-      
+
       if (!isValidCategory(categoryName)) {
         setError('Invalid category');
         setLoading(false);
@@ -41,11 +45,13 @@ const Carrousel = ({ categoryName }) => {
 
       try {
         setLoading(true);
-        const response = await axios.get(`${apiUrl}/public/getvideos?category=${categoryName}`);
-        
+        const response = await axios.get(
+          `${apiUrl}/public/getvideos?category=${categoryName}`
+        );
+
         console.log('Response status:', response.status);
         console.log('Response data:', response.data);
-        
+
         if (response.status === 200) {
           if (Array.isArray(response.data)) {
             setVideos(response.data);
@@ -98,7 +104,7 @@ const Carrousel = ({ categoryName }) => {
           videos.map((video, index) => (
             <Video
               key={video.id || index}
-              image={video.thumbnail || video.image}
+              id={video.id || index}
               title={video.title}
               url={video.url}
               description={video.description}

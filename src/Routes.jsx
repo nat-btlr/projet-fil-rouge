@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -34,7 +33,10 @@ const RoutesConfig = () => (
     <Routes>
       <Route path="/footer" element={<Footer />} />
       <Route index element={<HomePublic />} />
-      <Route path="/pagevideoinfo" element={<PageVideoInfo />} />
+      
+      {/* Динамический путь для видео */}
+      <Route path="/video/:id" element={<PageVideoInfo />} />
+
       <Route path="/homeauth" element={<Home />} />
       <Route path="/videocategoriesante" element={<VideoCategorieSante />} />
       <Route path="/videocategoriepreparation" element={<VideoCategoriePreparation />} />
@@ -52,11 +54,10 @@ const RoutesConfig = () => (
       <Route path="/gestion-membres" element={<GestionMembres />} />
       <Route path="/gestion-commentaires" element={<GestionCommentaires />} />
       <Route path="/ajouter-video" element={<AjouterVideo />} />
-      {/* verifier s'il faut garder les 2 path ou pas  */}
       <Route path="/modifier-video" element={<ModifVideo />} />
       <Route path="/modifier-video/:id" element={<ModifVideo />} />
-      <Route path="*" element={<Error404 />} />
 
+      <Route path="*" element={<Error404 />} />
     </Routes>
   </Router>
 );
