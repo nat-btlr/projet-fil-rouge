@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Nav';
 import photoAccueil from '../Images/pexels_12.jpg';
 import Footer from "../Footer/Footer";
 
-import './Homepublic.css';
+import './HomePublic.css';
 
 const Home = () => (
   <>
