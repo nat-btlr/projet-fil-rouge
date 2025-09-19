@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavAdmin from '../NavAdmin/NavAdmin';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
-import FooterAdmin from '../FooterAdmin/footeradmin';
+import FooterAdmin from '../FooterAdmin/FooterAdmin';
 import { Link } from 'react-router-dom';
 import './GestionVideos.css'; 
 

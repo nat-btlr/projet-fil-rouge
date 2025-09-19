@@ -2,7 +2,7 @@ import React from 'react';
 import NavAdmin from '../NavAdmin/NavAdmin';
 import './GestionMembres.css';
 import CarrouselMembres from '../CarrouselMembres/CarrouselMembres';
-import FooterAdmin from '../FooterAdmin/footeradmin';
+import FooterAdmin from '../FooterAdmin/FooterAdmin';
 import { Button, Form } from 'react-bootstrap';
 
 

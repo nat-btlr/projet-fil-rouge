@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavAdmin from "../NavAdmin/NavAdmin";
-import FooterAdmin from '../FooterAdmin/footeradmin';
+import FooterAdmin from '../FooterAdmin/FooterAdmin';
 import {
   Container,
   Button,
