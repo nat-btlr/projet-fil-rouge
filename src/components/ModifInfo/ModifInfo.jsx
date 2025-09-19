@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './modifInfo.css';
+import './ModifInfo.css';
 import {
   Container,
   Button,
