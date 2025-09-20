@@ -11,53 +11,44 @@ import pexels3 from '../Images/pexels_3.jpg';
 import pexels5 from '../Images/pexels_5.jpg';
 
 const mockVideos = [
-  {
-    id: 1,
-    titre: "Comment gérer sa fatigue ?",
-    categorie: "Santé",
-    auteur: "XXXXXXXX",
-    image: pexels1
-  },
-  {
-    id: 2,
-    titre: "Titre",
-    categorie: "Catégorie",
-    auteur: "XXXXXXXX",
-    image: pexels2
-  },
-  {
-    id: 3,
-    titre: "Titre",
-    categorie: "Catégorie",
-    auteur: "XXXXXXXX",
-    image: pexels3
-  },
-  {
-    id: 4,
-    titre: "Titre",
-    categorie: "Catégorie",
-    auteur: "XXXXXXXX",
-    image: pexels5
-  }
+  { id: 1, titre: "Comment gérer sa fatigue ?", categorie: "Santé", auteur: "Alice", image: pexels1 },
+  { id: 2, titre: "Préparation à la naissance", categorie: "Préparation", auteur: "Bob", image: pexels2 },
+  { id: 3, titre: "Cosmétiques bio", categorie: "Cosmétique", auteur: "Alice", image: pexels3 },
+  { id: 4, titre: "Écologie à la maison", categorie: "Écologie", auteur: "Charlie", image: pexels5 }
 ];
 
 const GestionVideos = () => {
   const [videos, setVideos] = useState(mockVideos);
   const [search, setSearch] = useState('');
-  const [filterCategorie, setFilterCategorie] = useState(false);
-  const [filterAuteur, setFilterAuteur] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedAuthors, setSelectedAuthors] = useState([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
+  const allCategories = [...new Set(videos.map(v => v.categorie))];
+  const allAuthors = [...new Set(videos.map(v => v.auteur))];
+
   const handleSearchChange = (e) => setSearch(e.target.value);
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategories(prev => 
+      prev.includes(category) ? prev.filter(c => c !== category) : [...prev, category]
+    );
+  };
+
+  const handleAuthorChange = (author) => {
+    setSelectedAuthors(prev => 
+      prev.includes(author) ? prev.filter(a => a !== author) : [...prev, author]
+    );
+  };
 
   const filteredVideos = videos.filter(video => {
     const matchSearch = video.titre.toLowerCase().includes(search.toLowerCase());
-    const matchCategorie = filterCategorie ? video.categorie === "Santé" : true;
-    const matchAuteur = filterAuteur ? video.auteur === "XXXXXXXX" : true;
-    return matchSearch && matchCategorie && matchAuteur;
+    const matchCategory = selectedCategories.length ? selectedCategories.includes(video.categorie) : true;
+    const matchAuthor = selectedAuthors.length ? selectedAuthors.includes(video.auteur) : true;
+    return matchSearch && matchCategory && matchAuthor;
   });
 
   const nextSlide = () => {
@@ -91,38 +82,44 @@ const GestionVideos = () => {
 
         <a className="lien-video" href="/ajouter-video">Télécharger une nouvelle vidéo ?</a>
 
-        <Form className="recherche-video" style={{ gap: '10px' }}>
+        <Form className="recherche-video mb-3 d-flex" style={{ gap: '10px' }}>
           <Form.Control
             type="text"
             placeholder="Rechercher une vidéo"
             value={search}
             onChange={handleSearchChange}
           />
-          <Button id="boutonRechercher">Rechercher</Button>
+          <Button id="boutonRechercher" onClick={(e) => e.preventDefault()}>Rechercher</Button>
         </Form>
 
         <div className="mb-3">
-          <span className='filtre'>Filtrer les vidéos :</span>{' '}
-          <Form.Check
-            inline
-            label="Catégorie"
-            type="checkbox"
-            checked={filterCategorie}
-            onChange={(e) => setFilterCategorie(e.target.checked)}
-          />
-          <Form.Check
-            inline
-            label="Auteur"
-            type="checkbox"
-            checked={filterAuteur}
-            onChange={(e) => setFilterAuteur(e.target.checked)}
-          />
+          <span className='filtre-label'>Catégories :</span>
+          {allCategories.map(category => (
+            <Form.Check
+              inline
+              key={category}
+              label={category}
+              type="checkbox"
+              checked={selectedCategories.includes(category)}
+              onChange={() => handleCategoryChange(category)}
+            />
+          ))}
+
+          <span className='filtre-label'>Auteurs :</span>
+          {allAuthors.map(author => (
+            <Form.Check
+              inline
+              key={author}
+              label={author}
+              type="checkbox"
+              checked={selectedAuthors.includes(author)}
+              onChange={() => handleAuthorChange(author)}
+            />
+          ))}
         </div>
 
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <Button id='btn-carrousel' onClick={prevSlide}>
-            {'<'}
-          </Button>
+          <Button id='btn-carrousel' onClick={prevSlide}>{'<'}</Button>
 
           <Row className="flex-grow-1">
             {filteredVideos.slice(currentIndex, currentIndex + 3).map(video => (
@@ -146,9 +143,7 @@ const GestionVideos = () => {
             ))}
           </Row>
 
-          <Button id='btn-carrousel' onClick={nextSlide}>
-            {'>'}
-          </Button>
+          <Button id='btn-carrousel' onClick={nextSlide}>{'>'}</Button>
         </div>
 
         {showConfirm && (
