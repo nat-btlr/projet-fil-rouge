@@ -1,0 +1,39 @@
+.lien-telechargement {
+  display: inline-block;
+  text-decoration: underline;
+  margin-bottom: 30px;
+  
+}
+
+.lien-video {
+  text-decoration: underline;
+  align-items: first baseline;
+}
+
+.recherche-video {
+display: flex;
+align-items: center;
+padding-left: 0px;
+gap: 10px;
+}
+
+
+.filtre {
+  color:var(--rose);
+}
+
+.modif-supp {
+  margin-top: 10px;
+}
+
+.modif-supp a {
+  align-items: self-start;
+}
+
+#btn-carrousel {
+  margin: 0px 10px 0px 10px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  padding: 10px 10px;
+  border-radius: 0%;
+}

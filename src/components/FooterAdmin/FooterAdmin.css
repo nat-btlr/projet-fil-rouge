@@ -1,0 +1,28 @@
+.main-content {
+  flex: 1; 
+}
+
+#monFooterAdmin {
+  background-color: var(--jaune);
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  font-weight: bold;
+}
+
+/* Responsive pour mobile*/
+@media (max-width: 576px) {
+  #monFooterAdmin {
+    padding: 15px;
+    text-align: center;
+  }
+
+  #monFooterAdmin a {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,29 @@
+.titre-gestion-membres {
+  text-align: center;
+margin: 20px;
+}
+
+.me-2 {
+  border: solid 1px var(--prune) !important;
+  color: var(--prune) !important;
+  width: 180px;
+}
+
+#rech {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.mesCarrousels {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.container-gestion {
+  width: 100%;
+  height: 250px;
+}
+

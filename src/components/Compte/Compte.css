@@ -1,0 +1,60 @@
+.conteneur-infocompte {
+    width: 50vw;
+    background-color: var(--jaune) !important;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 10px;
+    margin-bottom: 15px;
+}
+
+.bienvenue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.lienmodif {
+    font-weight: bold;
+}
+
+.corpsCompte {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+.titreChamps {
+    font-weight: bold;
+}
+
+.boutonsGestionCompte {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 600px; 
+    gap: 10px; 
+    margin-bottom: 50px;
+}
+
+.boutonSupprimer, .boutonLogout {
+    width: 48%; 
+    max-width: 250px; 
+    margin-bottom: 0; 
+}
+
+.bouton, .boutonSupprimer {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff; 
+    color: white;
+    transition: background-color 0.3s;
+}

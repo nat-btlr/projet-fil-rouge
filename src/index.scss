@@ -5,13 +5,11 @@
   padding: 0;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4,h5 {
   font-family: Mooli;
   color: var(--rose) !important;
-  text-shadow: 1px 1px 0px var(--rose);
+  text-shadow: 1px 1px 0px var(--prune);
   font-weight: bold;
-  font-size: 25px;
-  margin-right: 10px;
 }
 
 p, span, h5 {

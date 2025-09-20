@@ -10,7 +10,6 @@ const DescriptionGroup = ({ title, description }) => (
     <Card.Body className="description-container">
       <Card.Title>{title}</Card.Title>
       <Card.Text>{description}</Card.Text>
-      <Button variant="primary">En savoir plus</Button>
     </Card.Body>
   </Card>
 );

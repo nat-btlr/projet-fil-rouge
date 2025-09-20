@@ -1,0 +1,64 @@
+.carrousel-conteneur {
+  position: relative;
+  top: -200px;
+  margin: 0 auto;
+}
+
+.membres-slide {
+  flex: 0 0 auto; 
+  margin-right: 10px; 
+}
+
+.profil {
+  object-fit: cover;
+}
+
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-button {
+  left: -50px;
+}
+
+.next-button {
+  right: -50px;
+}
+
+.button-annuler {
+  margin-right: 5px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.actions a {
+  align-items: start;
+}
+
+.texte {
+  padding: 0;
+  margin-bottom: 15px;
+}

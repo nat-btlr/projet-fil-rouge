@@ -1,0 +1,10 @@
+.button-genre-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.bold-link {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+}

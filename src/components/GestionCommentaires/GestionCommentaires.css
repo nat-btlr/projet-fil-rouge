@@ -1,0 +1,19 @@
+.conteneur-comm {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenu-comm {
+  flex: 1; 
+}
+
+.titre-commentaires {
+  margin: 20px;
+  text-align: center;
+}
+
+.texte-comm {
+  margin: 20px;
+  text-align: center;
+}
