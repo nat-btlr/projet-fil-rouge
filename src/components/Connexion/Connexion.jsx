@@ -74,13 +74,8 @@ const Connexion = () => {
 
           {errorMessage && <div className="error-message">{errorMessage}</div>} 
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Rester connecté-e" />
-          </Form.Group>
-
           <div className="connexionContainer">
             <Button className="buttonForm" type="submit">Connexion</Button>
-            <Form.Label>(Mot de passe oublié ?)</Form.Label>
           </div>
 
           <div className="creationContainer">

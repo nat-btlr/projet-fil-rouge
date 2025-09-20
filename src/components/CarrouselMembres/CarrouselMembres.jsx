@@ -57,10 +57,6 @@ const CarrouselMembres = ({ minnieWidth = '70%', imageWidth = '150px', imageHeig
             <p className='texte'><strong>ID :</strong> {membre.id}</p> 
             <p className='texte'>{membre.email}</p>
             <div className='actions'>
-              <a href='#' onClick={(e) => e.preventDefault()}>
-              Désactiver ?
-              </a>{' '}
-            
               <a href='#' onClick={(e) => { e.preventDefault(); confirmDelete(membre.id); }}>
               Supprimer ?
               </a>
