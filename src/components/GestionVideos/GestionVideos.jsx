@@ -10,6 +10,7 @@ import pexels2 from '../Images/pexels_2.jpg';
 import pexels3 from '../Images/pexels_3.jpg';
 import pexels5 from '../Images/pexels_5.jpg';
 
+//mettre attributs de la base de données avec requête HTTP cf. CONTROLLER //
 const mockVideos = [
   { id: 1, titre: "Comment gérer sa fatigue ?", categorie: "Santé", auteur: "Alice", image: pexels1 },
   { id: 2, titre: "Préparation à la naissance", categorie: "Préparation", auteur: "Bob", image: pexels2 },
