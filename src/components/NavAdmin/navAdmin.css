@@ -69,3 +69,8 @@
     margin: 5px;
   }
 }
+
+.navbar-admin .nav-link.logout-link {
+  color: var(--prune) !important;
+  text-decoration: underline;
+}
