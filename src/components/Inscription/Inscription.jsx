@@ -20,14 +20,14 @@ const Inscription = () => {
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*[^A-Za-z0-9]).{8,20}$/;
+  const passwordRegex = /^(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}$/;
 
   const addUser = async (e) => {
     e.preventDefault();
 
     if (!passwordRegex.test(password)) {
       setErrorMessage(
-        "Le mot de passe doit contenir entre 8 et 20 caractères, avec au moins une lettre et un caractère spécial."
+        "Le mot de passe doit contenir entre 8 et 20 caractères, avec au moins un chiffre et un caractère spécial."
       );
       return;
     }
