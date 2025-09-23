@@ -49,11 +49,6 @@
   color: var(--prune) !important;
 }
 
-.navbar-admin .nav-link.logout-link {
-  color: var(--prune) !important;
-  text-decoration: underline;
-} 
-
 /*version mobile nav*/
 @media (max-width: 576px) {
   .navLogoAdmin img {
