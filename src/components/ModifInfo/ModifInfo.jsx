@@ -22,6 +22,10 @@ const ModifInfo = () => {
     newPassword: ''
   });
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [popupType, setPopupType] = useState("success"); // "success" ou "error"
+
   const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
@@ -46,7 +50,10 @@ const ModifInfo = () => {
     try {
       const response = await axios.put(`${apiUrl}/api/updateuser`, formData);
       if (response.status === 200) {
-        alert('Vos informations ont été modifiées avec succès.');
+        // Pop-up de succès
+        setPopupMessage("Vos informations ont été modifiées avec succès !");
+        setPopupType("success");
+        setShowPopup(true);
 
         const updatedUser = {
           ...JSON.parse(localStorage.getItem("user")),
@@ -55,11 +62,21 @@ const ModifInfo = () => {
         };
         localStorage.setItem("user", JSON.stringify(updatedUser));
 
-        navigate('/compte');
+        setTimeout(() => {
+          setShowPopup(false);
+          navigate('/compte');
+        }, 2000);
       }
     } catch (error) {
       console.error('Erreur lors de la modification des informations:', error);
-      alert('Une erreur est survenue. Veuillez réessayer.');
+
+      // Pop-up d'erreur
+      setPopupMessage("Une erreur est survenue. Veuillez réessayer.");
+      setPopupType("error");
+      setShowPopup(true);
+
+      // Masquer le pop-up après 3 secondes
+      setTimeout(() => setShowPopup(false), 3000);
     }
   };
 
@@ -146,6 +163,16 @@ const ModifInfo = () => {
           </Button>
         </Container>
       </Container>
+
+      {/* Pop-up succès ou erreur */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className={`popup-content ${popupType === "error" ? "popup-error" : ""}`}>
+            <p>{popupMessage}</p>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );
