@@ -15,17 +15,16 @@ const Inscription = () => {
   const [gender, setGender] = useState("");
   const [successMessage, setSuccessMessage] = useState(""); 
   const [errorMessage, setErrorMessage] = useState("");
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  // Regex mot de passe : 8–20 caractères, au moins une lettre et un caractère spécial
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*[^A-Za-z0-9]).{8,20}$/;
 
   const addUser = async (e) => {
     e.preventDefault();
 
-    // Vérification du mot de passe côté front
     if (!passwordRegex.test(password)) {
       setErrorMessage(
         "Le mot de passe doit contenir entre 8 et 20 caractères, avec au moins une lettre et un caractère spécial."
@@ -33,24 +32,21 @@ const Inscription = () => {
       return;
     }
 
-    const newUser = {
-      email,
-      password,
-      username,
-      gender,
-    };
+    const newUser = { email, password, username, gender };
 
     try {
       await axios.post(`${apiUrl}/public/subscribe`, newUser);
 
       setSuccessMessage("Compte créé avec succès !");
+      setShowSuccessPopup(true);
       setErrorMessage("");
 
-      setTimeout(() => {
-        navigate("/connexion");
-      }, 2000);
+      // Retirer le setTimeout pour que le pop-up reste visible pendant le design
+      // setTimeout(() => {
+      //   setShowSuccessPopup(false);
+      //   navigate("/connexion");
+      // }, 2000);
 
-      // Reset des champs
       setEmail("");
       setPassword("");
       setUsername("");
@@ -59,7 +55,6 @@ const Inscription = () => {
       console.error("Erreur lors de l'inscription :", error);
 
       if (error.response && error.response.status === 400) {
-        // Message envoyé par le backend (pseudo ou email déjà pris)
         setErrorMessage(error.response.data.message || "Pseudo ou email déjà utilisé.");
       } else {
         setErrorMessage("Erreur serveur. Veuillez réessayer plus tard.");
@@ -73,8 +68,6 @@ const Inscription = () => {
       <h1 className="titreConnecter">Créer un compte</h1>
 
       <div className="form-container-connexion">
-        {/* Messages d'erreur et de succès */}
-        {successMessage && <div className="alert alert-success">{successMessage}</div>}
         {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
 
         <Form className="form-connexion" onSubmit={addUser}>
@@ -125,9 +118,7 @@ const Inscription = () => {
                 onChange={(e) => setGender(e.target.value)}
                 checked={gender === "Femme"}
               />
-              <label className="form-check-label" htmlFor="inlineRadio1">
-                Femme
-              </label>
+              <label className="form-check-label" htmlFor="inlineRadio1">Femme</label>
             </div>
             <div className="form-check form-check-inline">
               <input
@@ -139,9 +130,7 @@ const Inscription = () => {
                 onChange={(e) => setGender(e.target.value)}
                 checked={gender === "Homme"}
               />
-              <label className="form-check-label" htmlFor="inlineRadio2">
-                Homme
-              </label>
+              <label className="form-check-label" htmlFor="inlineRadio2">Homme</label>
             </div>
             <div className="form-check form-check-inline">
               <input
@@ -153,26 +142,29 @@ const Inscription = () => {
                 onChange={(e) => setGender(e.target.value)}
                 checked={gender === "Ne se prononce pas"}
               />
-              <label className="form-check-label" htmlFor="inlineRadio3">
-                Ne se prononce pas
-              </label>
+              <label className="form-check-label" htmlFor="inlineRadio3">Ne se prononce pas</label>
             </div>
           </Form.Group>
 
           <div className="creationContainer">
-            <Button className="buttonForm" type="submit">
-              Créer un compte
-            </Button>
+            <Button className="buttonForm" type="submit">Créer un compte</Button>
           </div>
 
           <div className="creationContainer">
             <p id="textConnection">Déjà un compte ?</p>
-            <Link to="/connexion">
-              <Button className="buttonForm">Se connecter</Button>
-            </Link>
+            <Link to="/connexion"><Button className="buttonForm">Se connecter</Button></Link>
           </div>
         </Form>
       </div>
+
+      {/* Pop-up stylé comme GestionVideos */}
+      {showSuccessPopup && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <p>{successMessage}</p>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>

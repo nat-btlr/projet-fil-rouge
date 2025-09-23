@@ -49,7 +49,7 @@ const PageCompte = () => {
     }
 
     const confirmation = window.confirm(
-      "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible."
+      "Êtes-vous sûr(e) de vouloir supprimer votre compte ? Cette action est irréversible."
     );
     if (!confirmation) return;
 
