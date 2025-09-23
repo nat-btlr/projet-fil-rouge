@@ -15,7 +15,6 @@ const Home = () => (
     <div className="welcomeWords">
       <img src={photoAccueil} alt="Accueil" id="pexels"/>
       <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
-      <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <Button className="welcomeButton" variant="outline-primary"><Link to="/connexion">Se connecter</Link></Button>{' '}
     </div>
     <Footer />
