@@ -41,11 +41,10 @@ const Inscription = () => {
       setShowSuccessPopup(true);
       setErrorMessage("");
 
-      // Retirer le setTimeout pour que le pop-up reste visible pendant le design
-      // setTimeout(() => {
-      //   setShowSuccessPopup(false);
-      //   navigate("/connexion");
-      // }, 2000);
+      setTimeout(() => {
+        setShowSuccessPopup(false);
+        navigate("/connexion");
+      }, 2000);
 
       setEmail("");
       setPassword("");
@@ -162,6 +161,7 @@ const Inscription = () => {
         <div className="popup-overlay">
           <div className="popup-content">
             <p>{successMessage}</p>
+
           </div>
         </div>
       )}
