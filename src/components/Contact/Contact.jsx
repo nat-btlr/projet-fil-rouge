@@ -1,152 +1,97 @@
-import React, { useState } from 'react';
-import './Contact.css';
-import {
-  Button,
-  Form,
-  InputGroup,
-  Row,
-  Col
-} from 'react-bootstrap';
-
-import Navigation from '../Navigation/Nav';
+import React, { useState } from "react";
+import "./Contact.css";
+import { Button, Form, InputGroup, Row, Col } from "react-bootstrap";
+import Navigation from "../Navigation/Nav";
 import Footer from "../Footer/Footer";
 
+const MAX_FILE_SIZE_MB = 2; // ✅ Taille max autorisée (en méga-octets)
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    username: '',
-    sujet: '',
-    message: '',
-    file: null,
-    terms: false
-  });
+  const [isSending, setIsSending] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [isError, setIsError] = useState(false); // ✅ Pour savoir si c'est un succès ou une erreur
 
-  const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-  const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-    let newValue;
+    const fileInput = form.querySelector('input[type="file"]');
+    const file = fileInput?.files[0];
 
-    if (type === 'checkbox') {
-      newValue = checked;
-    } else if (type === 'file') {
-      newValue = files[0] || null;
-    } else {
-      newValue = value;
+    // ✅ Vérification de la taille du fichier
+    if (file && file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+      setSuccessMessage(`❌ Le fichier dépasse ${MAX_FILE_SIZE_MB} Mo. Veuillez choisir un fichier plus léger.`);
+      setIsError(true);
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 3000);
+      return;
     }
 
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: newValue
-    }));
-  };
+    setIsSending(true);
+    setSuccessMessage("");
 
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.email) newErrors.email = 'Email requis';
-    if (!formData.username) newErrors.username = 'Pseudo requis';
-    if (!formData.sujet) newErrors.sujet = 'Sujet requis';
-    if (!formData.message) newErrors.message = 'Message requis';
-    if (!formData.terms) newErrors.terms = 'Vous devez accepter les conditions';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log(formData);
-      setSuccessMessage("Votre message a bien été envoyé ✅");
-      setFormData({
-        email: '',
-        username: '',
-        sujet: '',
-        message: '',
-        file: null,
-        terms: false
+    try {
+      await fetch("https://formsubmit.co/biloums@yahoo.fr", {
+        method: "POST",
+        body: new FormData(form),
+        mode: "no-cors", // ✅ évite les erreurs liées à la redirection
       });
+
+      setIsSending(false);
+      setSuccessMessage("Votre message a bien été envoyé ! Merci 😊 !");
+      setIsError(false);
+      setShowPopup(true);
+      form.reset();
+
+      setTimeout(() => setShowPopup(false), 2500);
+    } catch (error) {
+      console.error("Erreur lors de l’envoi :", error);
+      setIsSending(false);
+      setSuccessMessage("❌ Une erreur est survenue. Vérifiez votre connexion.");
+      setIsError(true);
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 2500);
     }
   };
 
   return (
     <>
       <Navigation />
-
       <h1 className="titreConnecter">Formulaire de Contact</h1>
 
       <div className="form-container-connexion">
-        {successMessage && <div className="alert alert-success">{successMessage}</div>}
-
-        <Form className="form-connexion" noValidate onSubmit={handleSubmit}>
+        <Form className="form-connexion" onSubmit={handleSubmit}>
           <Row className="mb-3">
             <Form.Group as={Col} md="5" controlId="username">
               <Form.Label>Pseudo</Form.Label>
-              <InputGroup hasValidation>
-                <Form.Control
-                  type="text"
-                  placeholder="Pseudo"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  isInvalid={!!errors.username}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.username}
-                </Form.Control.Feedback>
+              <InputGroup>
+                <Form.Control type="text" name="username" placeholder="Pseudo" required />
               </InputGroup>
             </Form.Group>
 
-            <Form.Group as={Col} md="7" controlId="email" className="position-relative">
+            <Form.Group as={Col} md="7" controlId="email">
               <Form.Label>E-mail</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="E-mail"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                isInvalid={!!errors.email}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.email}
-              </Form.Control.Feedback>
+              <Form.Control type="email" name="email" placeholder="E-mail" required />
             </Form.Group>
           </Row>
 
           <Form.Group className="mb-3" controlId="sujet">
             <Form.Label>Sujet du message</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Sujet du message"
-              name="sujet"
-              value={formData.sujet}
-              onChange={handleChange}
-              isInvalid={!!errors.sujet}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.sujet}
-            </Form.Control.Feedback>
+            <Form.Control type="text" name="sujet" placeholder="Sujet du message" required />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="message">
             <Form.Label>Message :</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={5}
-              placeholder="Votre message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              isInvalid={!!errors.message}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.message}
-            </Form.Control.Feedback>
+            <Form.Control as="textarea" name="message" rows={5} placeholder="Votre message" required />
           </Form.Group>
 
           <Form.Group className="position-relative mb-3" controlId="file">
             <Form.Label>Fichier (facultatif) :</Form.Label>
-            <Form.Control type="file" name="file" onChange={handleChange} />
+            <Form.Control type="file" name="file" />
+            <Form.Text className="text-muted">
+              Taille maximale autorisée : {MAX_FILE_SIZE_MB} Mo
+            </Form.Text>
           </Form.Group>
 
           <Form.Group className="position-relative mb-3" controlId="terms">
@@ -154,20 +99,31 @@ const Contact = () => {
               required
               name="terms"
               label="J’accepte que mes données soient utilisées pour traiter ma demande."
-              onChange={handleChange}
-              checked={formData.terms}
-              isInvalid={!!errors.terms}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.terms}
-            </Form.Control.Feedback>
           </Form.Group>
 
+          {/* Champs cachés pour FormSubmit */}
+          <input type="hidden" name="_next" value="https://futures-mamans.netlify.app/" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_honey" style={{ display: "none" }} />
+
           <div className="creationContainer">
-            <Button className="buttonForm" type="submit">Envoyer</Button>
+            <Button className="buttonForm" type="submit" disabled={isSending}>
+              {isSending ? "Envoi en cours..." : "Envoyer"}
+            </Button>
           </div>
         </Form>
       </div>
+
+      {/* ✅ Pop-up stylé (vert pour succès, rouge pour erreur) */}
+      {showPopup && (
+        <div className={`popup-overlay ${isError ? "popup-error" : "popup-success"}`}>
+          <div className="popup-content">
+            <p>{successMessage}</p>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>
