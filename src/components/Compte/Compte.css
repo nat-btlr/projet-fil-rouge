@@ -42,13 +42,10 @@
     margin-bottom: 50px;
 }
 
-.boutonSupprimer, .boutonLogout {
+.bouton, .boutonSupprimer, .boutonLogout {
     width: 48%; 
     max-width: 250px; 
     margin-bottom: 0; 
-}
-
-.bouton, .boutonSupprimer {
     padding: 10px 20px;
     font-size: 16px;
     border: none;

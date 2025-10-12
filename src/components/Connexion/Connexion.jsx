@@ -27,9 +27,11 @@ const Connexion = () => {
         console.log("User found.")
 
         const userData = {
+          id: response.data.id,
           token: response.data.token,  
           username: response.data.username,    
-          email: response.data.email   
+          email: response.data.email,
+          role: response.data.role,          
         };
 
         localStorage.setItem("user", JSON.stringify(userData));

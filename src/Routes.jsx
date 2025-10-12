@@ -40,6 +40,11 @@ const RoutesConfig = () => (
       <Route path="/contact" element={<Contact />} />
 
       {/* Routes accessibles aux membres et admins */}
+      <Route path="/homeauth" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <Home />
+        </PrivateRoute>
+      } />
       <Route path="/compte" element={
         <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
           <PageCompte />

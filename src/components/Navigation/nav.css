@@ -41,6 +41,69 @@ svg {
   background-color: var(--jaune) !important;
 }
 
+.search-results-dropdown {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 48px; /* под строкой поиска, скорректируйте при необходимости */
+  min-width: 350px;
+  width: 480px;
+  max-width: 90vw;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  z-index: 2000;
+  padding: 16px 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-video {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.search-result-video:hover {
+  background: #f5f5f5;
+}
+
+.search-result-thumbnail {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #eee;
+}
+
+.search-result-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-result-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.search-result-description {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.search-no-results {
+  text-align: center;
+  color: #888;
+  padding: 24px 0;
+}
+
 
  /*version mobile (nav*/
 @media (max-width: 576px) {

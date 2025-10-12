@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Carrousel.css';
 import { isValidCategory } from '../../constants/categories';
 
-const Video = ({ id, title, url, description }) => {
+export const Video = ({ id, title, url, description }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -26,7 +26,7 @@ const Video = ({ id, title, url, description }) => {
   );
 };
 
-const Carrousel = ({ categoryName }) => {
+const Carrousel = ({ categoryName, className }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -45,8 +45,14 @@ const Carrousel = ({ categoryName }) => {
 
       try {
         setLoading(true);
+        const storedUser = JSON.parse(localStorage.getItem("user"));
+        const token = storedUser?.token;
+        
         const response = await axios.get(
-          `${apiUrl}/public/getvideos?category=${categoryName}`
+          `${apiUrl}/api/getvideos?category=${categoryName}`,
+          {
+            headers: token ? { Authorization: `Bearer ${token}` } : {},
+          }
         );
 
         console.log('Response status:', response.status);

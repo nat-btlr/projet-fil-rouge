@@ -4,10 +4,16 @@ import axios from 'axios';
 const LogoutButton = () => {
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:8080/public/logout', {}, { withCredentials: true });
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      const token = storedUser?.token;
       
+      await axios.post('http://localhost:8080/api/logout', {}, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        withCredentials: true
+      });
+
       localStorage.removeItem("user");
-  
+      localStorage.removeItem("loginTime");
       window.location.href = '/';
     } catch (error) {
       console.error('Error pendant la deconnexion', error);

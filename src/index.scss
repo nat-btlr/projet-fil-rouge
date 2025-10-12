@@ -46,6 +46,8 @@ a:hover {
   color: var(--prune) !important;
   border: solid 1px var(--prune) !important;
   box-shadow: none !important;
+  border-radius: 5px;
+  padding: 7px;
 }
 
 .btn-primary:hover {
