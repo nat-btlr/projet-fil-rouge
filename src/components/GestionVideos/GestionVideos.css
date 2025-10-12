@@ -37,3 +37,9 @@ gap: 10px;
   padding: 10px 10px;
   border-radius: 0%;
 }
+
+.filtre-label {
+  color: var(--prune);
+  margin-right: 10px;
+  font-weight: bold;
+}

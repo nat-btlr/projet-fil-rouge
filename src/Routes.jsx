@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/Home/Home';
-import HomePublic from './components/HomePublic/HomePublic'
+import HomePublic from './components/HomePublic/HomePublic';
 import PageVideoInfo from './components/PageVideoInfo/PageVideoInfo';
 import Error404 from './components/Error404/Error404';
 
@@ -28,35 +28,99 @@ import VideoCategorieCosmetique from './components/CategoriesVideos/VideoCosmeti
 import VideoCategorieEcologie from './components/CategoriesVideos/VideoEcologie/VideoCategorieEcologie';
 import Footer from './components/Footer/Footer';
 
+import PrivateRoute from './components/PrivateRoute';
+
 const RoutesConfig = () => (
   <Router>
     <Routes>
-      <Route path="/footer" element={<Footer />} />
-      <Route index element={<HomePublic />} />
-      
-      {/* Динамический путь для видео */}
-      <Route path="/video/:id" element={<PageVideoInfo />} />
-
-      <Route path="/homeauth" element={<Home />} />
-      <Route path="/videocategoriesante" element={<VideoCategorieSante />} />
-      <Route path="/videocategoriepreparation" element={<VideoCategoriePreparation />} />
-      <Route path="/videocategoriecosmetique" element={<VideoCategorieCosmetique />} />
-      <Route path="/videocategorieecologie" element={<VideoCategorieEcologie />} />
-      <Route path="/compte" element={<PageCompte />} />
-      <Route path="/modifinfo" element={<ModifInfo />} />
+      {/* Routes publiques - accessibles à tous (visiteurs) */}
+      <Route path="/" element={<HomePublic />} />
+      <Route path="/inscription" element={<Inscription />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/inscription" element={<Inscription />} />
+
+      {/* Routes accessibles aux membres et admins */}
+      <Route path="/homeauth" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <Home />
+        </PrivateRoute>
+      } />
+      <Route path="/compte" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <PageCompte />
+        </PrivateRoute>
+      } />
+      <Route path="/modifinfo" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <ModifInfo />
+        </PrivateRoute>
+      } />
+
+      {/* Pages vidéos accessibles aux membres et admins */}
+      <Route path="/video/:id" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <PageVideoInfo />
+        </PrivateRoute>
+      } />
+      <Route path="/videocategoriesante" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <VideoCategorieSante />
+        </PrivateRoute>
+      } />
+      <Route path="/videocategoriepreparation" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <VideoCategoriePreparation />
+        </PrivateRoute>
+      } />
+      <Route path="/videocategoriecosmetique" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <VideoCategorieCosmetique />
+        </PrivateRoute>
+      } />
+      <Route path="/videocategorieecologie" element={
+        <PrivateRoute allowedRoles={["MEMBER", "ADMIN"]}>
+          <VideoCategorieEcologie />
+        </PrivateRoute>
+      } />
+
+      {/* Dashboard et gestion admin uniquement */}
+      <Route path="/homedashboard" element={
+        <PrivateRoute allowedRoles={["ADMIN"]}>
+          <HomeDashboard />
+        </PrivateRoute>
+      } />
+      <Route path="/gestion-videos" element={
+        <PrivateRoute allowedRoles={["ADMIN"]}>
+          <GestionVideos />
+        </PrivateRoute>
+      } />
+      <Route path="/gestion-membres" element={
+        <PrivateRoute allowedRoles={["ADMIN"]}>
+          <GestionMembres />
+        </PrivateRoute>
+      } />
+      <Route path="/gestion-commentaires" element={
+        <PrivateRoute allowedRoles={["ADMIN"]}>
+          <GestionCommentaires />
+        </PrivateRoute>
+      } />
+      <Route path="/ajouter-video" element={
+        <PrivateRoute allowedRoles={["ADMIN"]}>
+          <AjouterVideo />
+        </PrivateRoute>
+      } />
+      <Route path="/modifier-video/:id" element={
+        <PrivateRoute allowedRoles={["ADMIN"]}>
+          <ModifVideo />
+        </PrivateRoute>
+      } />
+
+      {/* Composants additionnels (nav/footer) */}
       <Route path="/navadmin" element={<NavAdmin />} />
       <Route path="/footeradmin" element={<FooterAdmin />} />
-      <Route path="/homedashboard" element={<HomeDashboard />} />
-      <Route path="/gestion-videos" element={<GestionVideos />} />
-      <Route path="/gestion-membres" element={<GestionMembres />} />
-      <Route path="/gestion-commentaires" element={<GestionCommentaires />} />
-      <Route path="/ajouter-video" element={<AjouterVideo />} />
-      <Route path="/modifier-video" element={<ModifVideo />} />
-      <Route path="/modifier-video/:id" element={<ModifVideo />} />
+      <Route path="/footer" element={<Footer />} />
 
+      {/* Route 404 pour toutes les autres URLs */}
       <Route path="*" element={<Error404 />} />
     </Routes>
   </Router>

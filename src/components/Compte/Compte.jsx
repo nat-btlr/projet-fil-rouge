@@ -26,7 +26,12 @@ const PageCompte = () => {
       }
 
       try {
-        const response = await axios.get(`${apiUrl}/api/getuser`, { params: { email } });
+        const token = storedUser?.token;
+        const response = await axios.get(`${apiUrl}/api/getuser`,
+           {
+            params: { email },           
+            headers: token ? { Authorization: `Bearer ${token}` } : {}
+     });
         if (response.status === 200) {
           setUser(response.data); 
           const updatedUser = { ...storedUser, ...response.data };
@@ -49,13 +54,16 @@ const PageCompte = () => {
     }
 
     const confirmation = window.confirm(
-      "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible."
+      "Êtes-vous sûr(e) de vouloir supprimer votre compte ? Cette action est irréversible."
     );
     if (!confirmation) return;
 
     try {
+      const token = storedUser?.token;
       const response = await axios.delete(`${apiUrl}/api/deleteaccount`, {
         params: { email: user.email },
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+
       });
 
       if (response.status === 200) {
