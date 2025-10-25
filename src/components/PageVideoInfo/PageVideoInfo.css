@@ -1,3 +1,15 @@
+/* Like button styles */
+.like-btn {
+    background-color: #fff !important;
+    color: var(--prune) !important;
+    border: 1px solid var(--rose) !important;
+    border-radius: 25px !important;
+    transition: background-color 0.3s;
+}
+.like-btn.liked {
+    background-color: var(--rose) !important;
+    color: #fff !important;
+}
 .video-info-container {
     width: 100%;
     margin-top: 2rem;

@@ -26,8 +26,9 @@ const PageVideoInfo = () => {
   const [video, setVideo] = useState(location.state || null);
 
 
-  // --- Лайки ---
+  // --- Likes ---
   const [likes, setLikes] = useState(0);
+  const [likedByCurrentUser, setLikedByCurrentUser] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -38,7 +39,7 @@ const PageVideoInfo = () => {
           headers: token ? { Authorization: `Bearer ${token}` } : {}
         })
         .then((res) => {
-          setLikes(res.data);
+          setLikes(res.data.count || res.data);
         })
         .catch((err) => {
           console.error("Erreur récupération likes:", err);
@@ -46,36 +47,37 @@ const PageVideoInfo = () => {
     }
   }, [id, apiUrl]);
 
-const handleLike = async () => {
+  const handleLikeToggle = async () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const token = storedUser?.token;
+  const userId = storedUser?.id;
+  if (!userId) {
+    alert("Vous devez être connecté pour liker.");
+    return;
+  }
   try {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    console.log("storedUser:", storedUser);
-    const token = storedUser?.token;
-    const userId = storedUser?.id;
-    if (!userId) {
-      alert("Vous devez être connecté pour liker.");
-      return;
-    }
-    const response = await axios.post(
-      `${apiUrl}/api/likes`,
-      {
-        userId: userId,
-        videoId: parseInt(id, 10),
-      },
-      {
-        headers: token ? { Authorization: `Bearer ${token}` } : {}
-      }
-    );
-
-    if (response.status === 200) {
-      const countRes = await axios.get(`${apiUrl}/api/likes/${id}`, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {}
-      });
-      setLikes(countRes.data);
+    if (!likedByCurrentUser) {
+      await axios.post(
+        `${apiUrl}/api/likes`,
+        { userId, videoId: parseInt(id, 10) },
+        { headers: token ? { Authorization: `Bearer ${token}` } : {} }
+      );
+      setLikedByCurrentUser(true);
+      setLikes((prev) => (typeof prev === 'number' ? prev + 1 : 1));
+    } else {
+      await axios.delete(
+        `${apiUrl}/api/likes`,
+        {
+          data: { userId, videoId: parseInt(id, 10) },
+          headers: token ? { Authorization: `Bearer ${token}` } : {}
+        }
+      );
+      setLikedByCurrentUser(false);
+      setLikes((prev) => (prev > 0 ? prev - 1 : 0));
     }
   } catch (err) {
-    console.error("Erreur ajout like:", err);
-    alert(err.response?.data || "Impossible d'ajouter un like");
+    console.error("Erreur lors du toggle like:", err);
+    alert(err.response?.data || "Impossible de changer le like");
   }
 };
 
@@ -111,8 +113,11 @@ const handleLike = async () => {
 
         <Row className="info-container align-items-center mt-3">
           <Col sm={2} className="d-flex align-items-center">
-            <Button onClick={handleLike} className="me-2">
-              👍 Liker
+            <Button
+              onClick={handleLikeToggle}
+              className={`me-2 like-btn${likedByCurrentUser ? " liked" : ""}`}
+            >
+              {likedByCurrentUser ? "👎 Retirer le like" : "👍 Liker"}
             </Button>
             {likes > 0 && <span>{likes}</span>}
           </Col>
