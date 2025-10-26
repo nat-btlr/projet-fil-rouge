@@ -1,5 +1,5 @@
 // GestionMembres.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavAdmin from '../NavAdmin/NavAdmin';
 import './GestionMembres.css';
 import CarrouselMembres from '../CarrouselMembres/CarrouselMembres';
@@ -8,31 +8,89 @@ import { Button, Form } from 'react-bootstrap';
 import Profil from '../Images/profil.png';
 
 const GestionMembres = () => {
-  const allMembres = [
-    { id: '001', pseudo: 'MamanCool', email: 'maman1@mail.com', imageUrl: Profil },
-    { id: '002', pseudo: 'MamanZen', email: 'zen@maman.com', imageUrl: Profil },
-    { id: '003', pseudo: 'MamanSereine', email: 'sereine@mail.com', imageUrl: Profil },
-    { id: '004', pseudo: 'MamanActive', email: 'active@mail.com', imageUrl: Profil },
-    { id: '005', pseudo: 'MamanZen', email: 'zen2@maman.com', imageUrl: Profil },
-    { id: '006', pseudo: 'MamanCool', email: 'cool2@maman.com', imageUrl: Profil }
-  ];
-
+  const [membres, setMembres] = useState([]);
   const [search, setSearch] = useState('');
-  const [filteredMembres, setFilteredMembres] = useState(allMembres);
+  const [filteredMembres, setFilteredMembres] = useState([]);
+  const [searchError, setSearchError] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"))?.token;
+        const res = await fetch(`${apiUrl}/api/users`, {
+          headers: token ? { Authorization: `Bearer ${token}` } : {}
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const users = Array.isArray(data) ? data.map(u => ({
+            username: u.username,
+            email: u.email,
+            imageUrl: Profil,
+            id: u.id
+          })) : [];
+          setMembres(users);
+          setFilteredMembres(users);
+        }
+      } catch (err) {
+        setMembres([]);
+        setFilteredMembres([]);
+      }
+    };
+    fetchUsers();
+  }, [apiUrl]);
 
   const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setSearch(value);
-
-    const filtered = allMembres.filter(membre =>
-      membre.pseudo.toLowerCase().includes(value.toLowerCase()) ||
-      membre.email.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredMembres(filtered);
+    setSearch(e.target.value);
+    setSearchError("");
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault(); // empêcher le rechargement
+  const handleSearchSubmit = async (e) => {
+    e.preventDefault();
+    if (!search.trim()) {
+      setFilteredMembres(membres);
+      setSearchError("");
+      return;
+    }
+    try {
+      const token = JSON.parse(localStorage.getItem("user"))?.token;
+      const params = new URLSearchParams();
+      if (search.includes("@")) {
+        params.append("email", search);
+      } else {
+        params.append("username", search);
+      }
+      const res = await fetch(`${apiUrl}/api/user/search?${params.toString()}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      });
+      if (res.ok) {
+        const user = await res.json();
+        setFilteredMembres([{ username: user.username, email: user.email, imageUrl: Profil, id: user.id }]);
+        setSearchError("");
+      } else {
+        setFilteredMembres([]);
+        setSearchError("Pas d'utilisatier avec ces données.");
+      }
+    } catch (err) {
+      setFilteredMembres([]);
+      setSearchError("Pas d'utilisatier avec ces données.");
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Supprimer cet utilisateur?")) return;
+    try {
+      const token = JSON.parse(localStorage.getItem("user"))?.token;
+      const res = await fetch(`${apiUrl}/api/user/${id}`, {
+        method: "DELETE",
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      });
+      if (res.ok) {
+        setMembres(prev => prev.filter(u => u.id !== id));
+        setFilteredMembres(prev => prev.filter(u => u.id !== id));
+      }
+    } catch (err) {
+    }
   };
 
   return (
@@ -57,7 +115,11 @@ const GestionMembres = () => {
           </div>
         </div>
 
-        <CarrouselMembres membres={filteredMembres} />
+        {searchError ? (
+          <div className="search-error" style={{ textAlign: 'center', color: 'var(--prune)', margin: '30px 0', fontWeight: 'bold' }}>{searchError}</div>
+        ) : (
+          <CarrouselMembres membres={filteredMembres} onDelete={handleDelete} />
+        )}
       </div>
       <FooterAdmin />
     </>
