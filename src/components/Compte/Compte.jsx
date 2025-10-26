@@ -35,6 +35,7 @@ const PageCompte = () => {
         if (response.status === 200) {
           setUser(response.data); 
           const updatedUser = { ...storedUser, ...response.data };
+          setUser(updatedUser);
           localStorage.setItem("user", JSON.stringify(updatedUser));
         } else {
           console.error("Erreur lors de la récupération des données utilisateur.");
@@ -95,6 +96,17 @@ const PageCompte = () => {
             <span className="titreChamps">E-mail :</span> {user ? user.email : "Vous n'êtes pas connecté-e"}
           </p>
         </Container>
+
+        {user?.role === "ADMIN" && (
+          <Container style={{ width: '50vw', marginBottom: '15px', display: 'flex', justifyContent: 'center' }}>
+            <Link to="/homedashboard" style={{ width: '100%' }}>
+              <Button className="dashboard-admin-btn" style={{ width: '100%' }}>
+                Dashboard admin
+              </Button>
+            </Link>
+          </Container>
+        )}
+
         <Container className="boutonsGestionCompte">
           <Button className="boutonSupprimer" onClick={handleDeleteAccount}>
             Supprimer mon compte Futures Mamans

@@ -1,3 +1,9 @@
+.buttonForm {
+  min-width: 160px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  white-space: normal;
+}
 .button-genre-container {
   display: flex;
   gap: 1rem;
