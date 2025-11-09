@@ -1,0 +1,56 @@
+.modif {
+  color: var(--rose);
+}
+
+.titre-modif {
+  text-align: center;
+  margin: 20px;
+}
+
+.row-espace-client {
+  margin: 10px 0;
+  padding: 15px;
+}
+
+
+.btn-valider {
+  font-weight: bold;
+  background-color: var(--rose);
+  padding: 0 20px;
+}
+
+.espace-btn {
+  display: flex;
+  gap : 50px;
+
+}
+
+.lien-gras {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+}
+
+.conteneur-modif {
+  margin-bottom: 20px;
+}
+
+.titreLabel {
+  margin: 10px 0px;
+}
+
+.compteModif {
+  /* avoid fixed heights so content can flow and not overlap footer */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem; /* space for footer */
+  box-sizing: border-box;
+}
+
+/* make button area responsive */
+.espace-btn {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

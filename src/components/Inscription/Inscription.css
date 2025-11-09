@@ -1,0 +1,32 @@
+.buttonForm {
+  min-width: 160px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  white-space: normal;
+}
+.button-genre-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.bold-link {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+

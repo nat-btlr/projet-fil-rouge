@@ -1,0 +1,118 @@
+import React, { useEffect, useState } from 'react';
+import Navigation from '../Navigation/Nav';
+import { Button, Container } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import Footer from "../Footer/Footer";
+import './Compte.css';
+import LogoutButton from '../ButtonLogout/ButtonLogout';
+import axios from 'axios';
+
+const PageCompte = () => {
+
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(storedUser || null);
+  const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const email = storedUser.email || null;
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (!email) {
+        if (storedUser) setUser(storedUser);
+        return;
+      }
+
+      try {
+        const token = storedUser?.token;
+        const response = await axios.get(`${apiUrl}/api/getuser`,
+           {
+            params: { email },           
+            headers: token ? { Authorization: `Bearer ${token}` } : {}
+     });
+        if (response.status === 200) { 
+          const updatedUser = { ...storedUser, ...response.data };
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+        } else {
+          console.error("Erreur lors de la récupération des données utilisateur.");
+        }
+      } catch (error) {
+        console.error("Erreur de requête:", error);
+      }
+    };
+
+    fetchUser();
+  }, [email]);
+
+  const handleDeleteAccount = async () => {
+    if (!user || !user.email) {
+      alert("Utilisateur introuvable.");
+      return;
+    }
+
+    const confirmation = window.confirm(
+      "Êtes-vous sûr(e) de vouloir supprimer votre compte ? Cette action est irréversible."
+    );
+    if (!confirmation) return;
+
+    try {
+      const token = storedUser?.token;
+      const response = await axios.delete(`${apiUrl}/api/deleteaccount`, {
+        params: { email: user.email },
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+
+      });
+
+      if (response.status === 200) {
+        alert("Votre compte a été supprimé avec succès.");
+        localStorage.removeItem("user"); 
+        navigate("/"); 
+      } else {
+        alert(`Erreur: ${response.data.message || "Une erreur s'est produite."}`);
+      }
+    } catch (error) {
+      console.error("Erreur lors de la suppression du compte:", error);
+      alert("Une erreur s'est produite. Veuillez réessayer plus tard.");
+    }
+  };
+
+  return (
+    <>
+      <Navigation />
+      <Container className="corpsCompte">
+        <h1>Mon Espace Compte</h1>
+        <Container className="conteneur-infocompte">
+          <div className="bienvenue">
+            <h3>Bienvenue {user ? user.username : ""}</h3>
+            <p className="lienmodif">
+              <Link to="/modifinfo">Modifier mes informations &gt;</Link>
+            </p>
+          </div>
+          <p>
+            <span className="titreChamps">E-mail :</span> {user ? user.email : "Vous n'êtes pas connecté-e"}
+          </p>
+        </Container>
+
+        {user?.role === "ADMIN" && (
+          <Container style={{ width: '50vw', marginBottom: '15px', display: 'flex', justifyContent: 'center' }}>
+            <Link to="/homedashboard" style={{ width: '100%' }}>
+              <Button className="dashboard-admin-btn" style={{ width: '100%' }}>
+                Dashboard admin
+              </Button>
+            </Link>
+          </Container>
+        )}
+
+        <Container className="boutonsGestionCompte">
+          <Button className="boutonSupprimer" onClick={handleDeleteAccount}>
+            Supprimer mon compte Futures Mamans
+          </Button>
+          <LogoutButton className="boutonLogout" />
+        </Container>
+      </Container>
+      <Footer />
+    </>
+  );
+};
+
+export default PageCompte;

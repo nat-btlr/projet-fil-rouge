@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4,h5 {
   font-family: Mooli;
   color: var(--rose) !important;
   text-shadow: 1px 1px 0px var(--prune);
@@ -46,6 +46,8 @@ a:hover {
   color: var(--prune) !important;
   border: solid 1px var(--prune) !important;
   box-shadow: none !important;
+  border-radius: 5px;
+  padding: 7px;
 }
 
 .btn-primary:hover {

@@ -1,29 +1,23 @@
 import React from 'react';
 
 import Navigation from '../Navigation/Nav';
-import photoAcceuil from '../Images/pexels_12.jpg';
-import Carrie from '../Carrie/Carrie';
-import Minnie from '../Minnie/Minnie';
-import Footer from '../Footer';
+import photoAccueil from '../Images/pexels_12.jpg';
+import Footer from "../Footer/Footer";
 
-import './home.css';
+import './Home.css';
 
 const Home = () => (
   <>
     <div id="fond">
-    <Navigation />
-    <div className="welcomeWords">
-      <img src={photoAcceuil} alt="Acceuil" id="pexels"/>
-      <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
-      <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    
-    <Carrie />
-      <div className='mesCarrousels'>
-        <Minnie />
-        <Minnie />
+      <Navigation />
+      <div className="welcomeWords">
+        <img src={photoAccueil} alt="Accueil" id="pexels"/>
+        <div className="welcomeOverlay">
+          <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
+          <p className='desc'>Nous sommes heureuses à vous accueillir sur notre plateforme.</p>
+        </div>
       </div>
-    <Footer />
+      <Footer />
     </div>
   </>
 );

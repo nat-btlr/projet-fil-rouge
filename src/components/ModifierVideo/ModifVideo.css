@@ -1,0 +1,22 @@
+.titreConnecter {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-conteneur {
+  margin: 0 auto;
+  padding: 23px;
+}
+
+label {
+  color: var(--rose) !important;
+}
+
+.modif-conteneur {         
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;                   
+}

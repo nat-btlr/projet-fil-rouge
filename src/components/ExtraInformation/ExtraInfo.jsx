@@ -6,7 +6,7 @@ import {
   Tabs,
   Container
 } from 'react-bootstrap';
-import './style.css';
+import './ExtraInfo.css';
 import imgVideo2 from '../Images/carousel2.jpg';
 
 // CREATING EXTRA CONTAINER //
