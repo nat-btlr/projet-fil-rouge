@@ -6,17 +6,26 @@ const LogoutButton = () => {
     try {
       const storedUser = JSON.parse(localStorage.getItem("user"));
       const token = storedUser?.token;
-      
-      await axios.post('http://localhost:8080/api/logout', {}, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-        withCredentials: true
-      });
+
+      await axios.post(
+        'http://localhost:8080/api/logout',
+        {},
+        { headers: token ? { Authorization: `Bearer ${token}` } : {} }
+      );
 
       localStorage.removeItem("user");
       localStorage.removeItem("loginTime");
+      localStorage.removeItem("lastActivity");
+      delete axios.defaults.headers.common['Authorization'];
+
       window.location.href = '/';
     } catch (error) {
       console.error('Error pendant la deconnexion', error);
+      localStorage.removeItem("user");
+      localStorage.removeItem("loginTime");
+      localStorage.removeItem("lastActivity");
+      delete axios.defaults.headers.common['Authorization'];
+      window.location.href = '/';
     }
   };
 

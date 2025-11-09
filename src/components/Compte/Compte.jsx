@@ -8,20 +8,17 @@ import LogoutButton from '../ButtonLogout/ButtonLogout';
 import axios from 'axios';
 
 const PageCompte = () => {
-  
-  const [user, setUser] = useState(null);
-
-  const navigate = useNavigate();
-
-  const apiUrl = import.meta.env.VITE_API_URL;
 
   const storedUser = JSON.parse(localStorage.getItem("user"));
-  const email = storedUser ? storedUser.email : null;
+  const [user, setUser] = useState(storedUser || null);
+  const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const email = storedUser.email || null;
 
   useEffect(() => {
     const fetchUser = async () => {
       if (!email) {
-        console.error("Email is not available.");
+        if (storedUser) setUser(storedUser);
         return;
       }
 
@@ -32,8 +29,7 @@ const PageCompte = () => {
             params: { email },           
             headers: token ? { Authorization: `Bearer ${token}` } : {}
      });
-        if (response.status === 200) {
-          setUser(response.data); 
+        if (response.status === 200) { 
           const updatedUser = { ...storedUser, ...response.data };
           setUser(updatedUser);
           localStorage.setItem("user", JSON.stringify(updatedUser));

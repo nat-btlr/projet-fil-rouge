@@ -1,10 +1,13 @@
 .conteneur-infocompte {
-    width: 50vw;
+    /* use percentage/max-width instead of vw to keep block inside the page */
+    width: 100%;
+    max-width: 720px;
     background-color: var(--jaune) !important;
     padding: 20px;
     border-radius: 10px;
-    line-height: 10px;
+    line-height: 1.2;
     margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
 .bienvenue {
@@ -19,7 +22,6 @@
 }
 
 .corpsCompte {
-    min-height: 75vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,6 +29,7 @@
     gap: 20px; 
     padding-top: 70px;
     padding-bottom: 50px;
+    box-sizing: border-box;
 }
 
 .titreChamps {
@@ -40,18 +43,25 @@
     max-width: 600px; 
     gap: 10px; 
     margin-bottom: 50px;
+    flex-wrap: wrap; /* allow buttons to wrap on narrow screens */
 }
 
 .bouton, .boutonSupprimer, .boutonLogout {
-    width: 48%; 
-    max-width: 250px; 
-    margin-bottom: 0; 
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff; 
-    color: white;
-    transition: background-color 0.3s;
+        flex: 1 1 48%; /* flex-basis + allow shrink/grow */
+        min-width: 140px;
+        max-width: 250px; 
+        margin-bottom: 0; 
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007bff; 
+        color: white;
+        transition: background-color 0.3s;
+}
+
+/* ensure long text in yellow container wraps */
+.conteneur-infocompte, .conteneur-infocompte * {
+    word-wrap: break-word;
 }

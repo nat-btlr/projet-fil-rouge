@@ -40,7 +40,17 @@
 }
 
 .compteModif {
-  height: 70vh;
+  /* avoid fixed heights so content can flow and not overlap footer */
   display: flex;
   flex-direction: column;
+  padding-bottom: 3rem; /* space for footer */
+  box-sizing: border-box;
+}
+
+/* make button area responsive */
+.espace-btn {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }

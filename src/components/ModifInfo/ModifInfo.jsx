@@ -48,18 +48,25 @@ const ModifInfo = () => {
     }
 
     try {
-      const response = await axios.put(`${apiUrl}/api/updateuser`, formData);
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      const token = storedUser?.token;
+      
+      const response = await axios.put(`${apiUrl}/api/updateuser`, formData, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      });
       if (response.status === 200) {
         // Pop-up de succès
         setPopupMessage("Vos informations ont été modifiées avec succès !");
         setPopupType("success");
         setShowPopup(true);
 
-        const updatedUser = {
-          ...JSON.parse(localStorage.getItem("user")),
-          username: formData.newUsername,
-          email: formData.newEmail
+        const storedUser = JSON.parse(localStorage.getItem("user")) || {};
+        const serverData = response.data && Object.keys(response.data).length ? response.data : {};
+        const fallbackFromForm = {
+          ...(formData.newUsername && { username: formData.newUsername }),
+          ...(formData.newEmail && { email: formData.newEmail })
         };
+        const updatedUser = { ...storedUser, ...serverData, ...fallbackFromForm };
         localStorage.setItem("user", JSON.stringify(updatedUser));
 
         setTimeout(() => {

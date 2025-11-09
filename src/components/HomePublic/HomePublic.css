@@ -1,7 +1,6 @@
 /* Class rajouté pour mettre en place le h1 particulier pour cette page */
 .main-h1 {
     position: relative;
-    bottom: 450px;
     text-align: center;
     font-family: "Mooli";
     font-weight: bold;
@@ -11,22 +10,65 @@
   
   .desc {
     position: relative;
-    bottom: 450px;
     text-align: center;
   }
   
   /* Pour styliser le bouton "Se connecter" */
   .welcomeWords {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .welcomeWords img,
+  #pexels {
+    display: block;
+    width: 100%;
+    height: auto;
   }
   
   .welcomeButton {
     position: relative;
-    bottom: 450px;
     text-align: center;
     align-self: center;
     margin-top: 20px;
     font-weight: normal;
+  }
+
+  .welcomeOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    z-index: 10;
+    pointer-events: auto;
+  }
+
+  #fond {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #fond > .welcomeWords {
+    flex: 1 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    .main-h1 { font-size: 1.4rem; }
+    .desc { font-size: 0.95rem; padding: 0 1rem; }
   }
