@@ -1,13 +1,33 @@
- /* est ce que la navigation est utile ?
- #navbarScroll {
- padding-left: 230px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-}*/
-
 nav {
   background-color: var(--lilas) !important;
   box-shadow: 5px 0px 15px var(--lilas);
+}
+
+.navbar {
+  /* allow navbar contents to be visible (avoid clipping) */
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+.navbar .container-fluid {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  max-width: 100%;
+  /* ensure container does not clip absolutely positioned children */
+  overflow: visible;
+}
+
+.navbar-collapse {
+  overflow: visible;
+}
+
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
 }
 
 nav a {
@@ -20,8 +40,14 @@ nav a {
 }
 
 
+.navLogo {
+  flex: 0 0 auto;
+}
+
 .navLogo img {
-  width: 200px;
+  width: auto;
+  max-width: 200px;
+  height: auto;
   margin: 10px;
 }
 
@@ -42,18 +68,20 @@ svg {
 }
 
 .search-results-dropdown {
-  position: absolute;
+  /* position fixed so the dropdown is rendered above any page element and not clipped by navbar */
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 48px; /* под строкой поиска, скорректируйте при необходимости */
-  min-width: 350px;
-  width: 480px;
+  /* place just under the navbar (adjust if your navbar is taller) */
+  top: calc(56px + 8px);
+  min-width: 320px;
+  width: min(720px, 90vw);
   max-width: 90vw;
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  z-index: 2000;
+  z-index: 999999; /* ensure it appears above navbar and other elements */
   padding: 16px 0;
   max-height: 400px;
   overflow-y: auto;
@@ -117,7 +145,7 @@ svg {
   }
 
   svg {
-    width: 25px;         /* icônes plus petites */
+    width: 25px;
     margin: 5px;
   }
 
@@ -130,4 +158,32 @@ svg {
     font-size: 14px;
     margin-top: 10px;
   }
+}
+
+/* Additional responsive adjustments to avoid clipping on intermediate widths */
+@media (max-width: 1200px) {
+  nav a {
+    font-size: 20px;
+    margin: 4px 8px !important;
+  }
+  .navLogo img { max-width: 160px; }
+  svg { width: 30px; margin-left: 12px; margin-right: 12px; }
+}
+
+@media (max-width: 992px) {
+  nav a {
+    font-size: 18px;
+    margin: 3px 6px !important;
+  }
+  .navLogo img { max-width: 140px; }
+  svg { width: 28px; margin-left: 8px; margin-right: 8px; }
+}
+
+@media (max-width: 768px) {
+  nav a {
+    font-size: 16px !important;
+    margin: 3px 6px !important;
+  }
+  .navLogo img { max-width: 120px; }
+  svg { width: 24px; margin: 6px; }
 }

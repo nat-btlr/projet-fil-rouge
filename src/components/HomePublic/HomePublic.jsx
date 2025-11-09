@@ -14,8 +14,10 @@ const Home = () => (
     <Navigation />
     <div className="welcomeWords">
       <img src={photoAccueil} alt="Accueil" id="pexels"/>
-      <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
-      <Button className="welcomeButton" variant="outline-primary"><Link to="/connexion">Se connecter</Link></Button>{' '}
+      <div className="welcomeOverlay">
+        <h1 className="main-h1">Bienvenue sur la plateforme Futures Mamans !</h1>
+        <Button className="welcomeButton" variant="outline-primary"><Link to="/connexion">Se connecter</Link></Button>{' '}
+      </div>
     </div>
     <Footer />
     </div>
